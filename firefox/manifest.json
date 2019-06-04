@@ -25,6 +25,10 @@
 		}
 	},
 	
+	"options_ui": {
+		"page": "options/options.html"
+	},
+	
 	"background": {
 		"scripts": ["background.js"]
 	},
