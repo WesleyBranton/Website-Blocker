@@ -14,8 +14,12 @@ function save() {
 }
 
 // Add item
-function addItem(url) {
+function addItem() {
+	var urlbox = document.getElementById('add-url');
+	var url = urlbox.value; //'*://' + urlbox.value + '/*';
+	urlbox.value = '';
 	createItem(url);
+	urlData.push(url);
 	save();
 }
 
@@ -33,6 +37,7 @@ function createItem(url) {
 	
 	// Create item delete button
 	var btnDelete = document.createElement('button');
+	btnDelete.className = 'delItem';
 	btnDelete.textContent = '\u00D7';
 	
 	// Merge items
@@ -43,11 +48,22 @@ function createItem(url) {
 
 // Remove item
 function removeItem(item) {
-	save();
+	if (item.target.className == 'delItem') {
+		item = item.target.parentNode;
+		var url = item.querySelector('span').textContent;
+		var urlKey = urlData.indexOf(url);
+		if (urlKey >= 0) {
+			urlData.splice(urlKey,1);
+			item.parentNode.removeChild(item);
+			save();
+		}
+	}
 }
 
 var urlData;
 // Run when page loads
 window.onload = function(){
 	restore();
+	document.getElementById('add-button').addEventListener('click',addItem);
+	document.getElementById('url-list').addEventListener('click',removeItem);
 };

@@ -33,3 +33,13 @@
 	font-weight:bold;
 	padding:5px;
 }
+
+/* Add container */
+#add-dialog {
+	display:flex;
+}
+
+/* Add textbox */
+#add-url {
+	flex:1;
+}
