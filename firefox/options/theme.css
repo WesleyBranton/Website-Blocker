@@ -35,11 +35,11 @@
 }
 
 /* Add container */
-#add-dialog {
+#add-dialog, #add-advanced {
 	display:flex;
 }
 
 /* Add textbox */
-#add-url {
+#add-url, #add-mode {
 	flex:1;
 }

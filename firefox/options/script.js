@@ -16,7 +16,29 @@ function save() {
 // Add item
 function addItem() {
 	var urlbox = document.getElementById('add-url');
-	var url = urlbox.value; //'*://' + urlbox.value + '/*';
+	var urlmode = document.getElementById('add-mode').value;
+	
+	// Strip protocol
+	var url = '*://';
+	var urlMod = urlbox.value;
+	if (urlMod.indexOf('://') >= 0) {
+		urlMod = urlMod.slice(urlMod.indexOf('://')+3);
+	}
+	
+	// Generate URL string
+	if (urlmode == 'domain') {
+		// Domain only
+		url += urlMod + '/*';
+	} else if (urlmode == 'subdomain') {
+		// Domain and all subdomains
+		url += '*.' + urlMod + '/*';
+	} else if (urlmode == 'page') {
+		// Specific page
+		url += urlMod + '*';
+	} else if (urlmode == 'custom') {
+		// Custom URL string
+		url = urlbox.value;
+	}
 	urlbox.value = '';
 	createItem(url);
 	urlData.push(url);

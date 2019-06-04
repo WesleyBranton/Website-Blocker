@@ -10,6 +10,14 @@
 			<input type="text" id="add-url" placeholder="*.example.com"/>
 			<button id="add-button">Block</button>
 		</section>
+		<section id="add-advanced">
+			<select id="add-mode">
+				<option value="domain" selected>Block domain (Default)</option>
+				<option value="subdomain">Block domain & all subdomains</option>
+				<option value="page">Block a specific page</option>
+				<option value="custom">Fully custom (Advanced only)</option>
+			</select>
+		</section>
 		<h3>Blocked URLs</h3>
 		<section id="url-list"></section>
 	</body>
