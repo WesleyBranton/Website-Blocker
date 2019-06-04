@@ -18,5 +18,9 @@
 		"128": "icons/icon-128.png"
 	},
 	
+	"background": {
+		"scripts": ["background.js"]
+	},
+	
 	"permissions": ["storage","webRequest","webRequestBlocking","<all_urls>"]
 }
