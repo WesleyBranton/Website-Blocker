@@ -82,10 +82,24 @@ function removeItem(item) {
 	}
 }
 
+// Search
+function searchList() {
+	var searchTerm = document.getElementById('search-box').value;
+	var items = document.getElementsByTagName('span');
+	for (i = 0; i < items.length; i++) {
+		if (items[i].textContent.search(searchTerm) >= 0) {
+			items[i].parentNode.className = 'list-item';
+		} else {
+			items[i].parentNode.className = 'list-item hide';
+		}
+	}
+}
+
 var urlData;
 // Run when page loads
 window.onload = function(){
 	restore();
 	document.getElementById('add-button').addEventListener('click',addItem);
 	document.getElementById('url-list').addEventListener('click',removeItem);
+	document.getElementById('search-button').addEventListener('click',searchList);
 };

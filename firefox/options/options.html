@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>{APPNAME} Options</title>
 		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="shortcut icon" href="../icons/icon-96.png"/>
 		<link rel="stylesheet" href="theme.css"/>
 		<script src="script.js"></script>
 	</head>
 	<body>
-		<section id="add-dialog">
-			<input type="text" id="add-url" placeholder="*.example.com"/>
-			<button id="add-button">Block</button>
+		<header></header>
+		<section class="group">
+			<h3>Add Website To Blocklist</h3>
+			<section id="add-advanced" class="container">
+				<select id="add-mode">
+					<option value="domain" selected>Block domain (Default)</option>
+					<option value="subdomain">Block domain & all subdomains</option>
+					<option value="page">Block a specific page</option>
+					<option value="custom">Fully custom (Advanced only)</option>
+				</select>
+			</section>
+			<section id="add-dialog" class="container">
+				<input type="text" id="add-url" placeholder="*.example.com"/>
+				<button id="add-button">+</button>
+			</section>
 		</section>
-		<section id="add-advanced">
-			<select id="add-mode">
-				<option value="domain" selected>Block domain (Default)</option>
-				<option value="subdomain">Block domain & all subdomains</option>
-				<option value="page">Block a specific page</option>
-				<option value="custom">Fully custom (Advanced only)</option>
-			</select>
+		<section class="group">
+			<h3>Search Blocked Websites</h3>
+			<section id="search-dialog" class="container">
+				<input type="text" id="search-box" placeholder="Search for a URL"/>
+				<button id="search-button">></button>
+			</section>
 		</section>
-		<h3>Blocked URLs</h3>
-		<section id="url-list"></section>
+		<section class="group">
+			<h3>Blocked Websites</h3>
+			<section id="url-list"></section>
+		</section>
+		<footer></footer>
 	</body>
 </html>
