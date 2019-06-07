@@ -25,6 +25,11 @@ function addItem() {
 		urlMod = urlMod.slice(urlMod.indexOf('://')+3);
 	}
 	
+	// Check if URL is empty
+	if (urlMod.length < 1) {
+		return;
+	}
+	
 	// Generate URL string
 	if (urlmode == 'domain') {
 		// Domain only
