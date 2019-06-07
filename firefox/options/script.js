@@ -95,11 +95,34 @@ function searchList() {
 	}
 }
 
+// Change URL placeholder
+function changePlaceholder() {
+	var urlmode = document.getElementById('add-mode').value;
+	var textbox = document.getElementById('add-url');
+	var mode;
+	if (urlmode == 'domain') {
+		// Domain only
+		mode = 'example.com';
+	} else if (urlmode == 'subdomain') {
+		// Domain and all subdomains
+		mode = 'test.example.com';
+	} else if (urlmode == 'page') {
+		// Specific page
+		mode = 'example.com/page';
+	} else if (urlmode == 'custom') {
+		// Custom URL string
+		mode = 'Custom URL Pattern';
+	}
+	textbox.placeholder = mode;
+}
+
 var urlData;
 // Run when page loads
 window.onload = function(){
 	restore();
+	changePlaceholder();
 	document.getElementById('add-button').addEventListener('click',addItem);
 	document.getElementById('url-list').addEventListener('click',removeItem);
 	document.getElementById('search-button').addEventListener('click',searchList);
+	document.getElementById('add-mode').addEventListener('change',changePlaceholder);
 };

@@ -1,3 +1,20 @@
+/* Variables */
+:root {
+	--color-light:#E6E6E6;
+	--color-red:red;
+	--color-blue:blue;
+	--color-green:green;
+	--font-size:14pt;
+}
+
+/* Body styling */
+body {
+	font-family:sans-serif;
+	font-size:var(--font-size);
+	margin:0px;
+	padding:0px;
+}
+
 /* Element positioning */
 .group {
 	width:100%;
@@ -18,32 +35,75 @@
 }
 
 /* URL item container */
-#url-list div {
+.list-item {
 	display:flex;
 	width:100%;
 	background-color:white;
-	margin:1px 0px;
+	border:2px solid var(--color-light);
+	border-top-right-radius:1000px;
+	border-bottom-right-radius:1000px;
+	overflow:hidden;
+	transition:ease all 0.5s;
 }
 
 /* URL item container highlighting */
-#url-list div:hover {
-	background-color:#EEE;
+.list-item:hover {
+	border:2px solid var(--color-red);
 }
 
 /* URL item label */
-#url-list div span {
+.list-item span {
 	flex:1;
 	padding:5px;
 }
 
-/* URL item button */
-#url-list div button {
+/* Button template */
+button {
 	cursor:pointer;
 	border:none;
-	background-color:red;
-	color:white;
 	font-weight:bold;
-	padding:5px;
+	padding:5px 20px 5px 20px;
+	transition:ease all 0.5s;
+	font-size:var(--font-size);
+	border-top-right-radius:1000px;
+	border-bottom-right-radius:1000px;
+	display:flex;
+}
+
+/* URL item button */
+.list-item button {
+	background-color:var(--color-light);
+	color:var(--color-red);
+}
+
+/* URL item button hover effect */
+.list-item button:hover {
+	background-color:var(--color-red);
+	color:white;
+}
+
+/* Search button */
+#search-button {
+	background-color:var(--color-light);
+	color:var(--color-blue);
+}
+
+/* Search button hover effect */
+#search-button:hover {
+	background-color:var(--color-blue);
+	color:white;
+}
+
+/* Add button */
+#add-button {
+	background-color:var(--color-light);
+	color:var(--color-green);
+}
+
+/* Add button hover effect */
+#add-button:hover {
+	background-color:var(--color-green);
+	color:white;
 }
 
 /* Container */
@@ -54,4 +114,20 @@
 /* Add textbox */
 #add-url, #add-mode, #search-box {
 	flex:1;
+}
+
+/* Textboxes */
+input, select {
+	font-size:var(--font-size);
+	border:2px solid var(--color-light);
+	padding:5px;
+}
+
+/* Note */
+.note {
+	background-color:var(--color-light);
+	text-align:center;
+	padding:10px;
+	border-radius:6px;
+	margin-top:1em;
 }
