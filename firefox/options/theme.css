@@ -1,25 +1,55 @@
 /* Variables */
 :root {
 	--color-light:#E6E6E6;
-	--color-red:red;
-	--color-blue:blue;
-	--color-green:green;
+	--color-dark:#1A1A1A;
+	--color-faded:#808080;
+	--color-red:#FF3333;
+	--color-red-2:#CC0000;
+	--color-blue:#0066CC;
+	--color-blue-2:#003366;
+	--color-green:#008042;
+	--color-green-2:#00331A;
+	--color-orange:#FF9933;
+	--color-orange-2:#B35900;
 	--font-size:14pt;
+}
+
+/* Cursor reset */
+*, header div#selected {
+	cursor:default;
+	-moz-user-select:none;
+}
+
+/* Cursor pointer */
+button, header div, input[type=checkbox], label, select {
+	cursor:pointer;
+}
+
+/* Cursor text selection */
+input[type=text], textarea {
+	cursor:text;
 }
 
 /* Body styling */
 body {
 	font-family:sans-serif;
 	font-size:var(--font-size);
+	color:var(--color-dark);
 	margin:0px;
 	padding:0px;
+	min-height:100vh;
+	background:radial-gradient(var(--color-orange), var(--color-orange-2));
 }
 
 /* Element positioning */
-.group {
+.page {
 	width:100%;
 	max-width:800px;
-	margin:1em auto 1em auto;
+	margin:auto;
+	padding:10px;
+	background-color:white;
+	box-sizing:border-box;
+	border-top:none;
 }
 
 /* Hide */
@@ -40,14 +70,16 @@ body {
 	width:100%;
 	background-color:white;
 	border:2px solid var(--color-light);
+	overflow:hidden;
+}
+
+.page.remove .list-item {
 	border-top-right-radius:1000px;
 	border-bottom-right-radius:1000px;
-	overflow:hidden;
-	transition:ease all 0.5s;
 }
 
 /* URL item container highlighting */
-.list-item:hover {
+.remove .list-item:hover {
 	border:2px solid var(--color-red);
 }
 
@@ -59,11 +91,9 @@ body {
 
 /* Button template */
 button {
-	cursor:pointer;
 	border:none;
 	font-weight:bold;
 	padding:5px 20px 5px 20px;
-	transition:ease all 0.5s;
 	font-size:var(--font-size);
 	border-top-right-radius:1000px;
 	border-bottom-right-radius:1000px;
@@ -72,37 +102,37 @@ button {
 
 /* URL item button */
 .list-item button {
-	background-color:var(--color-light);
+	background:var(--color-light);
 	color:var(--color-red);
 }
 
 /* URL item button hover effect */
 .list-item button:hover {
-	background-color:var(--color-red);
+	background:linear-gradient(var(--color-red), var(--color-red-2));
 	color:white;
 }
 
 /* Search button */
 #search-button {
-	background-color:var(--color-light);
+	background:var(--color-light);
 	color:var(--color-blue);
 }
 
 /* Search button hover effect */
 #search-button:hover {
-	background-color:var(--color-blue);
+	background:linear-gradient(var(--color-blue), var(--color-blue-2));
 	color:white;
 }
 
 /* Add button */
 #add-button {
-	background-color:var(--color-light);
+	background:var(--color-light);
 	color:var(--color-green);
 }
 
 /* Add button hover effect */
 #add-button:hover {
-	background-color:var(--color-green);
+	background:linear-gradient(var(--color-green), var(--color-green-2));
 	color:white;
 }
 
@@ -112,12 +142,12 @@ button {
 }
 
 /* Add textbox */
-#add-url, #add-mode, #search-box {
+#add-url, #add-mode, #search-box, #backuptext, #restoretext, header div {
 	flex:1;
 }
 
 /* Textboxes */
-input, select {
+input, select, textarea {
 	font-size:var(--font-size);
 	border:2px solid var(--color-light);
 	padding:5px;
@@ -130,4 +160,62 @@ input, select {
 	padding:10px;
 	border-radius:6px;
 	margin-top:1em;
+}
+
+/* Page selection button container */
+header {
+	width:100%;
+	max-width:800px;
+	margin:auto;
+	padding:10px 0px 0px 0px;
+	background-color:none;
+}
+
+/* Page selection buttons */
+header div {
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:var(--color-light);
+	text-align:center;
+	padding:10px;
+	font-weight:bold;
+}
+
+/* Selected page */
+header div#selected {
+	background-color:white;
+	border-bottom:none;
+}
+
+/* Non-selected page */
+header div:not(#selected) {
+	box-shadow:0px -3px 10px -2px var(--color-faded) inset;
+}
+
+/* Content controls */
+.page:not(.remove) #search, .page:not(.remove) .delItem, .page:not(.add) #add, .backup #list, .page:not(.backup) #backup {
+	display:none !important;
+}
+
+/* Backup/Restore input/output */
+textarea {
+	font-size:12pt;
+}
+
+/* Backup/Restore buttons */
+#backup button {
+	border-radius:1000px;
+	color:white;
+	background:linear-gradient(var(--color-green), var(--color-green-2));
+	margin-top:1em;
+}
+
+/* Backup/Restore buttons hover effect */
+#backup button:hover {
+	filter:brightness(75%);
+}
+
+/* Line split */
+hr {
+	color:var(--color-dark);
 }
