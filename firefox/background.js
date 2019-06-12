@@ -13,7 +13,8 @@ async function createBlocker() {
 
 // Handle blocked URL
 function block(requestDetails) {
-	return {cancel: true};
+	return {redirectUrl: browser.runtime.getURL('/blocked/blockpage.html')};
+	//return {cancel: true};
 }
 
 var filter = [];

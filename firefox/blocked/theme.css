@@ -1,0 +1,40 @@
+* {
+	cursor:default;
+	-moz-user-select:none;
+}
+
+body {
+	display:flex;
+	flex-direction:column;
+	background-color:#FF3333;
+	margin:0px;
+	padding:0px;
+	height:100vh;
+}
+
+div {
+	margin:auto;
+}
+
+.spacer, .content * {
+	flex:1;
+}
+
+.content {
+	display:flex;
+	flex-direction:column;
+	text-align:center;
+}
+
+.content span {
+	text-transform:uppercase;
+	font-family:sans-serif;
+	font-weight:bold;
+	color:white;
+	font-size:4vh;
+}
+
+img {
+	width:20vh;
+	margin:auto;
+}

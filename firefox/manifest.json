@@ -35,5 +35,7 @@
 		"scripts": ["background.js"]
 	},
 	
+	"web_accessible_resources": ["/blocked/blockpage.html"],
+	
 	"permissions": ["storage","webRequest","webRequestBlocking","<all_urls>"]
 }
