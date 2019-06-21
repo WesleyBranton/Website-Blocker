@@ -185,6 +185,12 @@ async function importURLs() {
 	window.location.reload();
 }
 
+// Copy text to clipboard
+function clipboard() {
+	document.getElementById('backuptext').select();
+	document.execCommand('copy');
+}
+
 var urlData;
 // Run when page loads
 window.onload = function(){
@@ -195,6 +201,7 @@ window.onload = function(){
 	document.getElementById('url-list').addEventListener('click',removeItem);
 	document.getElementById('search-button').addEventListener('click',searchList);
 	document.getElementById('restore').addEventListener('click',importURLs);
+	document.getElementById('copytext').addEventListener('click',clipboard);
 	document.getElementById('backuptext').addEventListener('click',function(){this.select()});
 	document.getElementById('add-mode').addEventListener('change',changePlaceholder);
 };

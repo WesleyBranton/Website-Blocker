@@ -17,7 +17,6 @@
 /* Cursor reset */
 *, header div#selected {
 	cursor:default;
-	-moz-user-select:none;
 }
 
 /* Cursor pointer */
