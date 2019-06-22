@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Website Blocker",
 	"version": "1.0",
-	"description": "[PLACEHOLDER]",
+	"description": "Block websites with ease!",
 	"author": "Wesley Branton",
 	
 	"developer": {
