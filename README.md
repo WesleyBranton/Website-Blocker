@@ -1,7 +1,7 @@
 # Website Blocker
 The Website Blocker browser extension for Firefox is a utility that allows you to easily block access to specific websites. It's useful for blocking annoying popups, inappropriate websites and websites that you just want to avoid.
 
-**PRODUCT PAGE:** [View Now]()
+**PRODUCT PAGE:** [View Now](https://addons.mozilla.org/firefox/addon/the-website-blocker/)
 
 ## Development
 This repository contains all of the required source code files to make changes to this extension. The "master" branch contains the source code for the latest stable release. If you want to test that version, you can view the release section to download the XPI file or visit the add-on listing on Mozilla.
