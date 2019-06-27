@@ -1,0 +1,50 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+/* Set cursor and disable text selection */
+* {
+	cursor: default;
+	-moz-user-select: none;
+}
+
+/* Body */
+body {
+	background: #FF950E;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Center everything */
+div {
+	margin: auto;
+}
+
+/* Spacers */
+.spacer,
+.content * {
+	flex: 1;
+}
+
+/* Content container */
+.content {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+/* Text */
+.content span {
+	color: white;
+	font: bold 4vh sans-serif;
+	text-transform: uppercase;
+}
+
+/* Logo */
+img {
+	margin: auto;
+	width: 20vh;
+}

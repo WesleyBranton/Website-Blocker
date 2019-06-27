@@ -1,0 +1,41 @@
+{
+	"manifest_version": 2,
+	"name": "Website Blocker",
+	"version": "1.0",
+	"description": "Block websites with ease!",
+	"author": "Wesley Branton",
+	
+	"developer": {
+		"name": "Wesley Branton",
+		"url": "http://addons.wesleybranton.com"
+	},
+
+	"icons": {
+		"32": "icons/icon-32.png",
+		"48": "icons/icon-48.png",
+		"64": "icons/icon-64.png",
+		"96": "icons/icon-96.png",
+		"128": "icons/icon-128.png"
+	},
+	
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "websiteblocker@wesleybranton.com",
+			"strict_min_version": "57.0"
+		}
+	},
+	
+	"options_ui": {
+		"open_in_tab": true,
+		"browser_style": false,
+		"page": "options/options.html"
+	},
+	
+	"background": {
+		"scripts": ["background.js"]
+	},
+	
+	"web_accessible_resources": ["/blocked/blockpage.html"],
+	
+	"permissions": ["storage","webRequest","webRequestBlocking","<all_urls>"]
+}
