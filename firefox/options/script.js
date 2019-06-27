@@ -119,10 +119,10 @@ function changePlaceholder() {
 	var mode;
 	if (urlmode == 'domain') {
 		// Domain only
-		mode = 'example.com';
+		mode = 'example.com or test.example.com';
 	} else if (urlmode == 'subdomain') {
 		// Domain and all subdomains
-		mode = 'test.example.com';
+		mode = 'example.com';
 	} else if (urlmode == 'page') {
 		// Specific page
 		mode = 'example.com/page';
