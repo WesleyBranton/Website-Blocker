@@ -1,46 +1,46 @@
 /* Set cursor and disable text selection */
 * {
-	cursor:default;
-	-moz-user-select:none;
+	cursor: default;
+	-moz-user-select: none;
 }
 
 /* Body */
 body {
-	display:flex;
-	flex-direction:column;
-	background-color:#FF950E;
-	margin:0px;
-	padding:0px;
-	height:100vh;
+	background: #FF950E;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
 }
 
 /* Center everything */
 div {
-	margin:auto;
+	margin: auto;
 }
 
-.spacer, .content * {
-	flex:1;
+/* Spacers */
+.spacer,
+.content * {
+	flex: 1;
 }
 
 /* Content container */
 .content {
-	display:flex;
-	flex-direction:column;
-	text-align:center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 }
 
 /* Text */
 .content span {
-	text-transform:uppercase;
-	font-family:sans-serif;
-	font-weight:bold;
-	color:white;
-	font-size:4vh;
+	color: white;
+	font: bold 4vh sans-serif;
+	text-transform: uppercase;
 }
 
 /* Logo */
 img {
-	width:20vh;
-	margin:auto;
+	margin: auto;
+	width: 20vh;
 }
