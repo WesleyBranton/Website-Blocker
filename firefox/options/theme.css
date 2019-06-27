@@ -218,3 +218,10 @@ textarea {
 hr {
 	color:var(--color-dark);
 }
+
+/* Links */
+a {
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}

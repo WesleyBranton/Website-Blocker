@@ -202,6 +202,7 @@ window.onload = function(){
 	document.getElementById('search-button').addEventListener('click',searchList);
 	document.getElementById('restore').addEventListener('click',importURLs);
 	document.getElementById('copytext').addEventListener('click',clipboard);
+	document.getElementById('wildcardInfo').addEventListener('click',function(){window.open("https://github.com/WesleyBranton/Website-Blocker/wiki/Using-wildcards","_blank")});
 	document.getElementById('backuptext').addEventListener('click',function(){this.select()});
 	document.getElementById('add-mode').addEventListener('change',changePlaceholder);
 };
