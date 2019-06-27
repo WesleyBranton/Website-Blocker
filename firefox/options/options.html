@@ -9,12 +9,17 @@
 		<script src="script.js"></script>
 	</head>
 	<body>
+		<!-- Page selection buttons -->
 		<header class="container">
 			<div id="selected" class="add">Add</div>
 			<div class="remove">Remove</div>
 			<div class="backup">Backup/Restore</div>
 		</header>
+		
+		<!-- Content container -->
 		<section id="main" class="page add">
+
+			<!-- Add page -->
 			<section id="add" class="group">
 				<section id="add-advanced" class="container">
 					<select id="add-mode">
@@ -32,17 +37,23 @@
 					To select all subdomains or all subpages, using an asterisk. For example, <u>*.example.com</u> will block all subdomains of example.com and <u>example.com/blog/*</u> will block all subpages of blog. <a id="wildcardInfo">Learn more</a>
 				</section>
 			</section>
+			
+			<!-- Remove page -->
 			<section id="search" class="group">
 				<section id="search-dialog" class="container">
 					<input type="text" id="search-box" placeholder="Search for a URL"/>
 					<button id="search-button">></button>
 				</section>
 			</section>
+			
+			<!-- URL list table -->
 			<section id="list" class="group">
 				<h3>Blocked Websites</h3>
 				<section id="url-list"></section>
 				<div id="url-list-none">No websites blocked</div>
 			</section>
+			
+			<!-- Backup/Restore page -->
 			<section id="backup" class="group">
 				<h3>Backup</h3>
 				<section class="container">
@@ -58,6 +69,5 @@
 				<button id="restore">Restore Website List</button>
 			</section>
 		</section>
-		<footer></footer>
 	</body>
 </html>

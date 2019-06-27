@@ -1,8 +1,10 @@
+/* Set cursor and disable text selection */
 * {
 	cursor:default;
 	-moz-user-select:none;
 }
 
+/* Body */
 body {
 	display:flex;
 	flex-direction:column;
@@ -12,6 +14,7 @@ body {
 	height:100vh;
 }
 
+/* Center everything */
 div {
 	margin:auto;
 }
@@ -20,12 +23,14 @@ div {
 	flex:1;
 }
 
+/* Content container */
 .content {
 	display:flex;
 	flex-direction:column;
 	text-align:center;
 }
 
+/* Text */
 .content span {
 	text-transform:uppercase;
 	font-family:sans-serif;
@@ -34,6 +39,7 @@ div {
 	font-size:4vh;
 }
 
+/* Logo */
 img {
 	width:20vh;
 	margin:auto;

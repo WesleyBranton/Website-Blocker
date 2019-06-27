@@ -1,8 +1,11 @@
 // Load settings
 async function restore() {
-	var list = document.getElementById('url-list');
+	// Load list from storage
 	let data = await browser.storage.sync.get();
 	urlData = data.urlList;
+	
+	// Add items to GUI table
+	var list = document.getElementById('url-list');
 	for (i = 0; i < data.urlList.length; i++) {
 		createItem(data.urlList[i]);
 	}
@@ -44,6 +47,8 @@ function addItem() {
 		// Custom URL string
 		url = urlbox.value;
 	}
+	
+	// Clear input, create GUI item and save to storage
 	urlbox.value = '';
 	createItem(url);
 	urlData.push(url);
@@ -54,8 +59,10 @@ function addItem() {
 // Toggle "no websites blocked" text
 function checkList() {
 	if (urlData.length > 0) {
+		// Hide text
 		document.getElementById('url-list-none').className = 'hide';
 	} else {
+		// Show text
 		document.getElementById('url-list-none').className = '';
 	}
 }
@@ -117,6 +124,8 @@ function changePlaceholder() {
 	var urlmode = document.getElementById('add-mode').value;
 	var textbox = document.getElementById('add-url');
 	var mode;
+	
+	// Check which placeholder is valid
 	if (urlmode == 'domain') {
 		// Domain only
 		mode = 'example.com or test.example.com';
@@ -130,20 +139,27 @@ function changePlaceholder() {
 		// Custom URL string
 		mode = 'Custom URL Pattern';
 	}
+	
 	textbox.placeholder = mode;
 }
 
 // Toggle menu pages
 function changeMenu(e) {
 	var page = e.target.className;
+	
+	// Check for invalid page
 	if (page != 'add' && page != 'remove' && page != 'backup') {
 		return;
 	}
+	
+	// Change the page
 	var currentPage = document.getElementById('selected').className;
 	var main = document.getElementById('main');
 	document.getElementById('selected').id = '';
 	e.target.id = 'selected';
 	main.className = 'page ' + page;
+	
+	// Generate backup text if required
 	if (page == 'backup') {
 		backup();
 	}
@@ -151,12 +167,17 @@ function changeMenu(e) {
 
 // Generate backup text
 async function backup() {
-	var output = document.getElementById('backuptext');
+	// Load list from storage
 	var list = '';
 	let data = await browser.storage.sync.get();
+	
+	// Generate text
+	var output = document.getElementById('backuptext');
 	for (i = 0; i < data.urlList.length; i++) {
 		list += data.urlList[i] + ',';
 	}
+	
+	// Display text
 	output.value = list.slice(0,-1);
 }
 
@@ -165,6 +186,7 @@ async function importURLs() {
 	var inputBox = document.getElementById('restoretext');
 	var input = inputBox.value;
 	
+	// Check if there are no URLs
 	if (input.trim().length < 1) {
 		return;
 	}
@@ -172,15 +194,20 @@ async function importURLs() {
 	var overwrite = document.getElementById('overwrite').checked;
 	var urls = input.split(',');
 	
+	// Check whether to overwrite or not
 	if (overwrite) {
+		// Remove previous data (overwrite)
 		let removed = await browser.storage.sync.remove('urlList');
 	} else {
+		// Merge with previous data (don't overwrite)
 		let data = await browser.storage.sync.get();
 		urls = data.urlList.concat(urls);
 	}
 	
+	// Save URL list to storage
 	let saved = await browser.storage.sync.set({urlList:urls});
 	
+	// Clear textarea & reload page
 	inputBox.value = '';
 	window.location.reload();
 }
