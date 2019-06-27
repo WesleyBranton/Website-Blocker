@@ -16,6 +16,18 @@ function block(requestDetails) {
 	return {redirectUrl: browser.runtime.getURL('/blocked/blockpage.html')};
 }
 
+// Handles missing data
+async function checkData() {
+	let data = await browser.storage.sync.get();
+	if (!data.urlList) {
+		console.log("Create");
+		browser.storage.sync.set({urlList:[]});
+	} else {
+		console.log("Exists");
+	}
+}
+
 var filter = [];
 createBlocker();
 browser.storage.onChanged.addListener(createBlocker);
+checkData();
