@@ -1,79 +1,83 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Website Blocker Options</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="../icons/icon-96.png">
-		<link rel="stylesheet" href="theme.css">
-		<script src="script.js"></script>
-	</head>
-	<body>
-		<!-- Page selection buttons -->
-		<header class="container">
-			<div id="selected" class="add">Add</div>
-			<div class="remove">Remove</div>
-			<div class="backup">Backup/Restore</div>
-		</header>
-		
-		<!-- Content container -->
-		<section id="main" class="page add">
 
-			<!-- Add page -->
-			<section id="add" class="group">
-				<section id="add-advanced" class="container">
-					<select id="add-mode">
-						<option value="domain" selected>Block domain (Default)</option>
-						<option value="subdomain">Block domain & all subdomains</option>
-						<option value="page">Block a specific page</option>
-						<option value="custom">Fully custom (Advanced only)</option>
-					</select>
-				</section>
-				<section id="add-dialog" class="container">
-					<input type="text" id="add-url" placeholder="*.example.com">
-					<button id="add-button">+</button>
-				</section>
-				<section class="note">
-					To select all subdomains or all subpages, using an asterisk. For example, <u>*.example.com</u> will block all subdomains of example.com and <u>example.com/blog/*</u> will block all subpages of blog.
-					<a id="wildcardInfo">Learn more</a>
-				</section>
-			</section>
-			
-			<!-- Remove page -->
-			<section id="search" class="group">
-				<section id="search-dialog" class="container">
-					<input type="text" id="search-box" placeholder="Search for a URL">
-					<button id="search-button">></button>
-				</section>
-			</section>
-			
-			<!-- URL list table -->
-			<section id="list" class="group">
-				<h3>Blocked Websites</h3>
-				<section id="url-list"></section>
-				<div id="url-list-none">No websites blocked</div>
-			</section>
-			
-			<!-- Backup/Restore page -->
-			<section id="backup" class="group">
-				<h3>Backup</h3>
-				<section class="container">
-					<textarea id="backuptext" readonly></textarea>
-				</section>
-				<button id="copytext">Copy To Clipboard</button>
-				<hr>
-				<h3>Restore</h3>
-				<section class="container">
-					<textarea id="restoretext"></textarea>
-				</section>
-				<input type="checkbox" name="overwrite" id="overwrite">
-				<label for="overwrite">Overwrite existing websites</label>
-				<br>
-				<button id="restore">Restore Website List</button>
-			</section>
-		</section>
-	</body>
+<head>
+  <title>Website Blocker Options</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="../icons/icon-96.png">
+  <link rel="stylesheet" href="theme.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <!-- Page selection buttons -->
+  <header class="container">
+    <div id="selected" class="add">Add</div>
+    <div class="remove">Remove</div>
+    <div class="backup">Backup/Restore</div>
+  </header>
+
+  <!-- Content container -->
+  <section id="main" class="page add">
+
+    <!-- Add page -->
+    <section id="add" class="group">
+      <section id="add-advanced" class="container">
+        <select id="add-mode">
+          <option value="domain" selected>Block domain (Default)</option>
+          <option value="subdomain">Block domain & all subdomains</option>
+          <option value="page">Block a specific page</option>
+          <option value="custom">Fully custom (Advanced only)</option>
+        </select>
+      </section>
+      <section id="add-dialog" class="container">
+        <input type="text" id="add-url" placeholder="*.example.com">
+        <button id="add-button">+</button>
+      </section>
+      <section class="note">
+        To select all subdomains or all subpages, using an asterisk. For example, <u>*.example.com</u> will block all subdomains of example.com and <u>example.com/blog/*</u> will block all subpages of blog.
+        <a id="wildcardInfo">Learn more</a>
+      </section>
+    </section>
+
+    <!-- Remove page -->
+    <section id="search" class="group">
+      <section id="search-dialog" class="container">
+        <input type="text" id="search-box" placeholder="Search for a URL">
+        <button id="search-button">></button>
+      </section>
+    </section>
+
+    <!-- URL list table -->
+    <section id="list" class="group">
+      <h3>Blocked Websites</h3>
+      <section id="url-list"></section>
+      <div id="url-list-none">No websites blocked</div>
+    </section>
+
+    <!-- Backup/Restore page -->
+    <section id="backup" class="group">
+      <h3>Backup</h3>
+      <section class="container">
+        <textarea id="backuptext" readonly></textarea>
+      </section>
+      <button id="copytext">Copy To Clipboard</button>
+      <hr>
+      <h3>Restore</h3>
+      <section class="container">
+        <textarea id="restoretext"></textarea>
+      </section>
+      <input type="checkbox" name="overwrite" id="overwrite">
+      <label for="overwrite">Overwrite existing websites</label>
+      <br>
+      <button id="restore">Restore Website List</button>
+    </section>
+  </section>
+</body>
+
 </html>
