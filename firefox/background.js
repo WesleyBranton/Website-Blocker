@@ -42,4 +42,7 @@ async function checkData() {
 var filter = [];
 createBlocker();
 browser.storage.onChanged.addListener(createBlocker);
+browser.browserAction.onClicked.addListener(() => {
+	browser.runtime.openOptionsPage()
+});
 checkData();
