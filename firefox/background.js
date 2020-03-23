@@ -22,9 +22,11 @@ async function createBlocker() {
         }
 
         // Create listener
-        browser.webRequest.onBeforeRequest.addListener(block, {
-            urls: filter
-        }, ["blocking"]);
+        if (filter.length > 0) {
+            browser.webRequest.onBeforeRequest.addListener(block, {
+                urls: filter
+            }, ["blocking"]);
+        }
     }
 }
 
