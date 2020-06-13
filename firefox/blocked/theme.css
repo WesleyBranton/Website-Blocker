@@ -9,7 +9,7 @@
 }
 
 /* Body */
-body + p {
+body {
   background: #FF950E;
   display: flex;
   flex-direction: column;
