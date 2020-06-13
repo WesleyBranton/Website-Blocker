@@ -7,60 +7,47 @@
  * @async
  */
 async function backup() {
-    // Load list from storage
-    let list = '';
-    let data = await browser.storage.sync.get();
-
-    // Generate text
-    const output = document.getElementById('backuptext');
-    for (i = 0; i < data.urlList.length; i++) {
-        list += data.urlList[i] + ',';
-    }
-
-    // Display text
-    output.value = list.slice(0, -1);
+    const data = await browser.storage.sync.get();
+    const file = new Blob([JSON.stringify(data)], {type: 'application/json'});
+    const fileURL = URL.createObjectURL(file);
+    browser.downloads.download({
+        filename: `website-blocker-backup-${Date.now()}.json`,
+        url: fileURL
+    });
 }
 
-/**
- * Copy text to clipboard
- */
-function clipboard() {
-    document.getElementById('backuptext').select();
-    document.execCommand('copy');
+async function loadFile() {
+    const fileInput = document.getElementById('file');
+    if (fileInput.files.length != 1) return false;
+    const overwrite = document.getElementById('overwrite').checked;
+    const file = fileInput.files[0];
+    const data = JSON.parse(await file.text());
+    fileInput.value = '';
+    if (data.urlList) return importURLs(data.urlList, overwrite);
 }
 
 /**
  * Import blocked list from text
  * @async
  */
-async function importURLs() {
-    const inputBox = document.getElementById('restoretext');
-    const input = inputBox.value;
-
-    // Check if there are no URLs
-    if (input.trim().length < 1) {
-        return;
-    }
-
-    const overwrite = document.getElementById('overwrite').checked;
-    let urls = input.split(',');
+async function importURLs(list, overwrite) {
+    if (list.length < 1) return;
 
     // Check whether to overwrite or not
     if (overwrite) {
         // Remove previous data (overwrite)
-        let removed = await browser.storage.sync.remove('urlList');
+        await browser.storage.sync.remove('urlList');
     } else {
         // Merge with previous data (don't overwrite)
-        let data = await browser.storage.sync.get();
-        urls = data.urlList.concat(urls);
+        const data = await browser.storage.sync.get();
+        list = data.urlList.concat(list);
     }
 
     // Save URL list to storage
-    let saved = await browser.storage.sync.set({
-        urlList: urls
+    await browser.storage.sync.set({
+        urlList: list
     });
 
-    // Clear textarea & reload page
-    inputBox.value = '';
+    // Reload page
     window.location.reload();
 }

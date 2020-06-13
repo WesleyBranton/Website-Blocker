@@ -19,11 +19,6 @@ function changeMenu(tab) {
     document.getElementById('selected').id = '';
     tab.target.id = 'selected';
     main.className = 'page ' + page;
-
-    // Generate backup text if required
-    if (page == 'backup') {
-        backup();
-    }
 }
 
 /**
@@ -75,13 +70,10 @@ window.onload = () => {
     document.getElementById('add-button').addEventListener('click', addItem);
     document.getElementById('url-list').addEventListener('click', removeItem);
     document.getElementById('search-button').addEventListener('click', searchList);
-    document.getElementById('restore').addEventListener('click', importURLs);
-    document.getElementById('copytext').addEventListener('click', clipboard);
+    document.getElementById('restore').addEventListener('click', loadFile);
+    document.getElementById('backup-generate').addEventListener('click', backup);
     document.getElementById('wildcardInfo').addEventListener('click', () => {
         window.open('https://github.com/WesleyBranton/Website-Blocker/wiki/Using-wildcards', '_blank')
-    });
-    document.getElementById('backuptext').addEventListener('click', () => {
-        this.select()
     });
     document.getElementById('add-mode').addEventListener('change', changePlaceholder);
 };

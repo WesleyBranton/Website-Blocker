@@ -66,19 +66,14 @@
     <!-- Backup/Restore page -->
     <section id="backup" class="group">
       <h3>Backup</h3>
-      <section class="container">
-        <textarea id="backuptext" readonly></textarea>
-      </section>
-      <button id="copytext">Copy To Clipboard</button>
+      <button id="backup-generate">Save backup</button>
       <hr>
       <h3>Restore</h3>
-      <section class="container">
-        <textarea id="restoretext"></textarea>
-      </section>
+      <input type="file" accept=".json" id="file"><br>
       <input type="checkbox" name="overwrite" id="overwrite">
       <label for="overwrite">Overwrite existing websites</label>
       <br>
-      <button id="restore">Restore Website List</button>
+      <button id="restore">Restore backup</button>
     </section>
   </section>
 </body>
