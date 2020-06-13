@@ -21,9 +21,13 @@ async function loadFile() {
     if (fileInput.files.length != 1) return false;
     const overwrite = document.getElementById('overwrite').checked;
     const file = fileInput.files[0];
-    const data = JSON.parse(await file.text());
-    fileInput.value = '';
-    if (data.urlList) return importURLs(data.urlList, overwrite);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const data = JSON.parse(e.target.result);
+        fileInput.value = '';
+        if (data.urlList) return importURLs(data.urlList, overwrite);
+    };
+    reader.readAsText(file);
 }
 
 /**

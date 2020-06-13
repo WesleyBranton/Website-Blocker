@@ -94,6 +94,8 @@ body {
 .list-item span {
   flex: 1;
   padding: 5px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 /* Button template */
@@ -215,6 +217,11 @@ header div:not(#selected) {
 /* Backup/Restore input/output */
 textarea {
   font-size: 12pt;
+}
+
+#file {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Backup/Restore buttons */
