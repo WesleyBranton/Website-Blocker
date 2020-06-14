@@ -22,7 +22,7 @@
   <header class="container">
     <div id="selected" class="add">Add</div>
     <div class="remove">Remove</div>
-    <div class="backup">Backup/Restore</div>
+    <div class="backup">Import/Export</div>
   </header>
 
   <!-- Content container -->
@@ -65,15 +65,15 @@
 
     <!-- Backup/Restore page -->
     <section id="backup" class="group">
-      <h3>Backup</h3>
-      <button id="backup-generate">Save backup</button>
+      <h3>Export</h3>
+      <button id="backup-generate">Export</button>
       <hr>
-      <h3>Restore</h3>
+      <h3>Import</h3>
       <input type="file" accept=".json" id="file"><br>
       <input type="checkbox" name="overwrite" id="overwrite">
       <label for="overwrite">Overwrite existing websites</label>
       <br>
-      <button id="restore">Restore backup</button>
+      <button id="restore">Import</button>
     </section>
   </section>
 </body>
