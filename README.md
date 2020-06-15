@@ -11,3 +11,11 @@ To develop and test the extension, you need to open the "about:debugging" page i
 Further documentation about developing Firefox extensions can be found [here](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension).
 
 ## Release Notes
+### Version 1.1
+* **[NEW]** Add-on now works on Firefox for Android
+* **[NEW]** Import/Export settings works with files instead of text
+* **[NEW]** Support wiki completed
+* **[NEW]** Toolbar button added by default
+* **[NEW]** Users are now warned if pages are not blocked in Private Browsing mode
+* **[NEW]** Options page opens on install
+* **[NEW]** Link to the support wiki now added to options page
