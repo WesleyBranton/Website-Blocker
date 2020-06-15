@@ -94,6 +94,8 @@ body {
 .list-item span {
   flex: 1;
   padding: 5px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 /* Button template */
@@ -217,6 +219,11 @@ textarea {
   font-size: 12pt;
 }
 
+#file {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* Backup/Restore buttons */
 #backup button {
   background: linear-gradient(var(--color-green), var(--color-green-2));
@@ -240,4 +247,42 @@ a {
   color: blue;
   cursor: pointer;
   text-decoration: underline;
+}
+
+/* Private Browsing banner */
+#private-notice {
+  background: #8D20AE;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 80%;
+  padding: .5em 1em;
+  align-items: center;
+  margin-bottom: .5em;
+  position: sticky;
+  top: 0;
+}
+
+#private-notice span {
+  flex: 1;
+  margin: 0 1em;
+}
+
+#private-notice img {
+  width: var(--font-size);
+}
+
+#private-notice a {
+  white-space: nowrap;
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, .3);
+  padding: .4em;
+  margin: 0 .1em;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#private-notice a:hover {
+  background: rgba(255, 255, 255, .5);
 }

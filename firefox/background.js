@@ -56,10 +56,23 @@ async function checkData() {
     }
 }
 
+/**
+ * Handles the installation/update of the add-on
+ */
+function handleInstalled(details) {
+    if (details.reason == 'install') {
+        browser.runtime.openOptionsPage();
+    } else if (details.reason == 'update') {
+        const { version } = browser.runtime.getManifest();
+        if (version == details.previousVersion) browser.runtime.openOptionsPage();
+    }
+}
+
 let filter = [];
 createBlocker();
 browser.storage.onChanged.addListener(createBlocker);
+browser.runtime.onInstalled.addListener(handleInstalled);
 browser.browserAction.onClicked.addListener(() => {
-    browser.runtime.openOptionsPage()
+    browser.runtime.openOptionsPage();
 });
 checkData();
