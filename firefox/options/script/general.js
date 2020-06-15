@@ -85,7 +85,6 @@ window.onload = () => {
     document.getElementById('search-button').addEventListener('click', searchList);
     document.getElementById('restore').addEventListener('click', loadFile);
     document.getElementById('backup-generate').addEventListener('click', backup);
-    document.getElementById('wildcardInfo').addEventListener('click', () => { window.open('https://github.com/WesleyBranton/Website-Blocker/wiki/Using-wildcards', '_blank') });
     document.getElementById('private-notice-close').addEventListener('click', () => { document.getElementById('private-notice').classList.add('hide') });
     document.getElementById('add-mode').addEventListener('change', changePlaceholder);
 };
