@@ -60,10 +60,23 @@ function save() {
     });
 }
 
+/**
+ * Toggle the Private Browsing add-on warning
+ * @async
+ */
+async function checkPrivateBrowsing() {
+    const isAllowed = await browser.extension.isAllowedIncognitoAccess();
+    const banner = document.getElementById('private-notice');
+
+    if (isAllowed) banner.classList.add('hide');
+    else banner.classList.remove('hide');
+}
+
 let urlData;
 
 // Run when page loads
 window.onload = () => {
+    checkPrivateBrowsing();
     restore();
     changePlaceholder();
     document.getElementsByTagName('header')[0].addEventListener('click', changeMenu);
