@@ -1,288 +1,51 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
-
-/* Variables */
-:root {
-  --color-light: #E6E6E6;
-  --color-dark: #1A1A1A;
-  --color-faded: #808080;
-  --color-red: #FF3333;
-  --color-red-2: #CC0000;
-  --color-blue: #0066CC;
-  --color-blue-2: #003366;
-  --color-green: #008042;
-  --color-green-2: #00331A;
-  --color-orange: #FF9933;
-  --color-orange-2: #B35900;
-  --font-size: 14pt;
+.panel-section-list :first-child {
+  flex: unset !important;
 }
 
-/* Cursor reset */
-*,
-header div#selected {
-  cursor: default;
+.panel-list-item.selected {
+  background: var(--blue-60) !important;
+  color: white !important;
 }
 
-/* Cursor pointer */
-button,
-header div,
-input[type=checkbox],
-label,
-select {
-  cursor: pointer;
+.panel-list-item.selected * {
+  color: white !important;
 }
 
-/* Cursor text selection */
-input[type=text],
-textarea {
-  cursor: text;
+.button-row {
+  display: flex;
 }
 
-/* Body styling */
-body {
-  background: radial-gradient(var(--color-orange), var(--color-orange-2));
-  color: var(--color-dark);
-  font: var(--font-size) sans-serif;
-  margin: 0px;
-  min-height: 100vh;
-  padding: 0px;
+.button-row > button {
+  flex: 1;
+  margin: 0 0.5em;
 }
 
-/* Element positioning */
-.page {
-  background: white;
-  border-top: none;
-  box-sizing: border-box;
-  margin: auto;
-  max-width: 800px;
-  padding: 10px;
-  width: 100%;
+#url-list-empty,
+#url-list-notfound {
+  padding: 4px 0;
+  font-style: italic;
 }
 
-/* Hide */
+#backup-file {
+  border: none !important;
+}
+
+.closed,
+.hidden,
 .hide {
   display: none !important;
 }
 
-/* URL list */
-#url-list {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.error {
+  color: red;
 }
 
-/* URL item container */
-.list-item {
-  background: white;
-  border: 2px solid var(--color-light);
-  display: flex;
-  overflow: hidden;
-  width: 100%;
+.dialog {
+  margin: auto 16px;
+  border: 1px solid var(--grey-90-a30);
+  padding: 0 0.5em;
 }
 
-.page.remove .list-item {
-  border-radius: 0px 1000px 1000px 0px;
-}
-
-/* URL item container highlighting */
-.remove .list-item:hover {
-  border: 2px solid var(--color-red);
-}
-
-/* URL item label */
-.list-item span {
-  flex: 1;
-  padding: 5px;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-/* Button template */
-button {
-  border: none;
-  border-radius: 0px 1000px 1000px 0px;
-  display: flex;
-  font-size: var(--font-size);
-  font-weight: bold;
-  padding: 5px 20px 5px 20px;
-}
-
-/* URL item button */
-.list-item button {
-  background: var(--color-light);
-  color: var(--color-red);
-}
-
-/* URL item button hover effect */
-.list-item button:hover {
-  background: linear-gradient(var(--color-red), var(--color-red-2));
-  color: white;
-}
-
-/* Search button */
-#search-button {
-  background: var(--color-light);
-  color: var(--color-blue);
-}
-
-/* Search button hover effect */
-#search-button:hover {
-  background: linear-gradient(var(--color-blue), var(--color-blue-2));
-  color: white;
-}
-
-/* Add button */
-#add-button {
-  background: var(--color-light);
-  color: var(--color-green);
-}
-
-/* Add button hover effect */
-#add-button:hover {
-  background: linear-gradient(var(--color-green), var(--color-green-2));
-  color: white;
-}
-
-/* Container */
-.container {
-  display: flex;
-}
-
-/* Add textbox */
-#add-url,
-#add-mode,
-#search-box,
-#backuptext,
-#restoretext,
-header div {
-  flex: 1;
-}
-
-/* Textboxes */
-input,
-select,
-textarea {
-  border: 2px solid var(--color-light);
-  font-size: var(--font-size);
-  padding: 5px;
-}
-
-/* Note */
-.note {
-  background: var(--color-light);
-  border-radius: 6px;
-  margin-top: 1em;
-  padding: 10px;
-  text-align: center;
-}
-
-/* Page selection button container */
-header {
-  background: none;
-  margin: auto;
-  max-width: 800px;
-  padding: 10px 0px 0px 0px;
-  width: 100%;
-}
-
-/* Page selection buttons */
-header div {
-  border-radius: 10px 10px 0px 0px;
-  background: var(--color-light);
-  font-weight: bold;
-  padding: 10px;
-  text-align: center;
-}
-
-/* Selected page */
-header div#selected {
-  background: white;
-}
-
-/* Non-selected page */
-header div:not(#selected) {
-  box-shadow: inset 0px -3px 10px -2px var(--color-faded);
-}
-
-/* Content controls */
-.page:not(.remove) #search,
-.page:not(.remove) .delItem,
-.page:not(.add) #add,
-.backup #list,
-.page:not(.backup) #backup {
-  display: none !important;
-}
-
-/* Backup/Restore input/output */
-textarea {
-  font-size: 12pt;
-}
-
-#file {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Backup/Restore buttons */
-#backup button {
-  background: linear-gradient(var(--color-green), var(--color-green-2));
-  border-radius: 1000px;
-  color: white;
-  margin-top: 1em;
-}
-
-/* Backup/Restore buttons hover effect */
-#backup button:hover {
-  filter: brightness(75%);
-}
-
-/* Line split */
-hr {
-  color: var(--color-dark);
-}
-
-/* Links */
-a {
-  color: blue;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-/* Private Browsing banner */
-#private-notice {
-  background: #8D20AE;
-  color: white;
-  box-sizing: border-box;
-  display: flex;
-  font-size: 80%;
-  padding: .5em 1em;
-  align-items: center;
-  margin-bottom: .5em;
-  position: sticky;
-  top: 0;
-}
-
-#private-notice span {
-  flex: 1;
-  margin: 0 1em;
-}
-
-#private-notice img {
-  width: var(--font-size);
-}
-
-#private-notice a {
-  white-space: nowrap;
-  color: white;
-  text-decoration: none;
-  background: rgba(255, 255, 255, .3);
-  padding: .4em;
-  margin: 0 .1em;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-#private-notice a:hover {
-  background: rgba(255, 255, 255, .5);
+#search:disabled {
+  cursor: not-allowed;
 }

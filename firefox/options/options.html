@@ -10,79 +10,104 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="../icons/icon-96.png">
+  <link rel="stylesheet" href="../lib/new_browser_style.css">
   <link rel="stylesheet" href="style/theme.css">
-  <script src="script/add.js"></script>
-  <script src="script/remove.js"></script>
-  <script src="script/backup.js"></script>
-  <script src="script/general.js"></script>
 </head>
 
-<body>
-  <!-- Private Browsing notice -->
-  <div id="private-notice" class="hide">
-    <img src="img/private.svg">
-    <span>Websites are not being blocked in Private Browsing mode because you have not given this add-on permission to run in Private Browsing.</span>
-    <a href="https://github.com/WesleyBranton/Website-Blocker/wiki/Allow-addon-to-run-in-Private-Browsing-mode" target="_blank">Learn More</a>
-    <a id="private-notice-close">Dismiss</a>
+<body class="browser-style">
+
+  <div id="private-browsing-warning" class="panel-section has-help hidden">
+    <div class="message-bar warning">
+      <span>
+        Websites are not being blocked in Private Browsing mode because you have not given this add-on permission to run in Private Browsing.
+        <a href="https://github.com/WesleyBranton/Website-Blocker/wiki/Allow-addon-to-run-in-Private-Browsing-mode" target="_blank">Learn More</a>
+      </span>
+    </div>
   </div>
 
-  <!-- Page selection buttons -->
-  <header class="container">
-    <div id="selected" class="add">Add</div>
-    <div class="remove">Remove</div>
-    <div class="backup">Import/Export</div>
-  </header>
+  <div id="dialog-add" class="dialog hidden">
+    <div class="panel-section has-help">
+      <b>Add Filter</b>
+    </div>
+    <div class="panel-section has-help">
+      <label for="add-mode">Type of filter</label>
+      <select id="add-mode" style="flex: 2;">
+        <option value="domain" selected>Block domain (Default)</option>
+        <option value="subdomain">Block domain & all subdomains</option>
+        <option value="page">Block a specific page</option>
+        <option value="custom">Fully custom (Advanced only)</option>
+      </select>
+    </div>
+    <div class="panel-section has-help">
+      <label for="add-url">Filter rule</label>
+      <input type="text" id="add-url" placeholder="*.example.com" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="flex: 2;">
+    </div>
+    <div class="panel-section">
+      <div id="error-add" class="error"></div>
+      <div>
+        <button id="add-help" class="ghost">Help</button>
+        <button id="add-cancel" class="secondary">Cancel</button>
+        <button id="add-finish" class="default">Add</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- Content container -->
-  <section id="main" class="page add">
+  <div id="dialog-backup" class="dialog hidden">
+    <div class="panel-section has-help">
+      <b>Backup / Restore</b>
+    </div>
+    <div class="panel-section">
+      <label>Download Backup</label>
+      <button id="backup-download" class="default">Download</button>
+    </div>
+    <div class="panel-section-separator"></div>
+    <div class="panel-section has-help">
+      <label>Restore From Backup</label>
+      <div>
+        <input id="backup-file" type="file" accept=".json">
+        <button id="backup-upload" class="default" disabled>Restore</button>
+        <br>
+        <label for="backup-overwrite">
+          <input type="checkbox" id="backup-overwrite">
+          Clear existing data
+        </label>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div id="error-backup" class="error"></div>
+      <div>
+        <button id="backup-finish" class="default">Close</button>
+      </div>
+    </div>
+  </div>
 
-    <!-- Add page -->
-    <section id="add" class="group">
-      <section id="add-advanced" class="container">
-        <select id="add-mode">
-          <option value="domain" selected>Block domain (Default)</option>
-          <option value="subdomain">Block domain & all subdomains</option>
-          <option value="page">Block a specific page</option>
-          <option value="custom">Fully custom (Advanced only)</option>
-        </select>
-      </section>
-      <section id="add-dialog" class="container">
-        <input type="text" id="add-url" placeholder="*.example.com" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-        <button id="add-button">+</button>
-      </section>
-      <section class="note">
-        Need help? Check out <a href="https://github.com/WesleyBranton/Website-Blocker/wiki" target="_blank">the wiki</a> for more information!
-      </section>
-    </section>
+  <div class="panel-section has-help">
+    <div class="button-row">
+      <button id='button-add' class="default">Add</button>
+      <button id='button-delete' class="default" disabled>Delete</button>
+      <button id='button-backup' class="default">Backup/Restore</button>
+    </div>
+  </div>
+  <div class="panel-section has-help">
+    <div class="button-row">
+      <input id="search" type="text" placeholder="Search">
+    </div>
+  </div>
+  <div class="panel-section has-help">
+    <b>Blocked Websites</b>
+  </div>
+  <div class="panel-section help-row">
+    <div id="url-list" class="panel-section panel-section-list"></div>
+  </div>
+  <div class="panel-section help-row">
+    <div id="url-list-empty" class="panel-section">No websites blocked</div>
+  </div>
+  <div class="panel-section help-row hidden">
+    <div id="url-list-notfound" class="panel-section">No websites found</div>
+  </div>
 
-    <!-- Remove page -->
-    <section id="search" class="group">
-      <section id="search-dialog" class="container">
-        <input type="text" id="search-box" placeholder="Search for a URL" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-        <button id="search-button">></button>
-      </section>
-    </section>
-
-    <!-- URL list table -->
-    <section id="list" class="group">
-      <h3>Blocked Websites</h3>
-      <section id="url-list"></section>
-      <div id="url-list-none">No websites blocked</div>
-    </section>
-
-    <!-- Backup/Restore page -->
-    <section id="backup" class="group">
-      <h3>Export</h3>
-      <button id="backup-generate">Export</button>
-      <hr>
-      <h3>Import</h3>
-      <input type="file" accept=".json" id="file"><br>
-      <input type="checkbox" name="overwrite" id="overwrite">
-      <label for="overwrite">Overwrite existing websites</label>
-      <br>
-      <button id="restore">Import</button>
-    </section>
-  </section>
+  <script src="script/class/Website.js"></script>
+  <script src="script/main.js"></script>
 </body>
 
 </html>
