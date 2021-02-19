@@ -340,7 +340,7 @@ async function restoreBackup() {
     UI.error.backup.textContent = '';
 
     if (UI.field.backup.file.files.length != 1) {
-        UI.error.backup.textContent = 'Cannot load multiple backup files';
+        UI.error.backup.textContent = 'Cannot load multiple files';
         return false;
     }
 
@@ -359,9 +359,9 @@ function processBackupFile(event) {
     const data = JSON.parse(event.target.result);
 
     if (!data.urlList) {
-        UI.error.backup.textContent = 'Invalid backup file';
+        UI.error.backup.textContent = 'Invalid file';
     } else if (data.urlList.length < 1) {
-        UI.error.backup.textContent = 'Backup file contains no data';
+        UI.error.backup.textContent = 'File contains no data';
     }
 
     if (UI.field.backup.overwrite.checked) {
