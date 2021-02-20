@@ -61,18 +61,24 @@
       <button id="backup-download" class="default">Export</button>
     </div>
     <div class="panel-section-separator"></div>
-    <div class="panel-section has-help">
+    <div class="panel-section">
       <label>Import from file</label>
-      <div>
-        <input id="backup-file" type="file" accept=".json">
-        <button id="backup-upload" class="default" disabled>Import</button>
+      <div style="text-align: right;">
+        <label id="backup-filename">
+          No file selected
+        </label>
         <br>
-        <label for="backup-overwrite">
+        <label id="backup-overwrite-container" for="backup-overwrite">
           <input type="checkbox" id="backup-overwrite">
           Clear existing data
         </label>
+        <br>
+        <input id="backup-file" type="file" accept=".json">
+        <button id="backup-browse" class="default">Select file...</button>
+        <button id="backup-upload" class="default" disabled>Import</button>
       </div>
     </div>
+    <div class="panel-section-separator"></div>
     <div class="panel-section">
       <div id="error-backup" class="error"></div>
       <div>

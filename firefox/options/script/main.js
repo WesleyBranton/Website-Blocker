@@ -159,7 +159,7 @@ function openBackupDialog(open) {
         UI.error.backup.textContent = '';
         UI.field.backup.file.value = '';
         UI.field.backup.overwrite.checked = false;
-        toggleRestoreButton();
+        updateRestoreSection();
         UI.dialog.backup.classList.remove('hidden');
     } else {
         UI.dialog.backup.classList.add('hidden');
@@ -360,8 +360,10 @@ function processBackupFile(event) {
 
     if (!data.urlList) {
         UI.error.backup.textContent = 'Invalid file';
+        return;
     } else if (data.urlList.length < 1) {
         UI.error.backup.textContent = 'File contains no data';
+        return;
     }
 
     if (UI.field.backup.overwrite.checked) {
@@ -376,7 +378,8 @@ function processBackupFile(event) {
     
     UI.field.backup.file.value = '';
     UI.field.backup.overwrite.checked = false;
-    toggleRestoreButton();
+    updateRestoreSection();
+    openBackupDialog(false);
 
     saveToStorage();
     updateListSize();
@@ -385,8 +388,16 @@ function processBackupFile(event) {
 /**
  * Enable/disable the restore from backup button
  */
-function toggleRestoreButton() {
+function updateRestoreSection() {
     UI.button.backup.upload.disabled = (UI.field.backup.file.files.length != 1);
+
+    if (UI.field.backup.file.files.length == 1) {
+        UI.field.backup.filename.textContent = UI.field.backup.file.files[0].name;
+        UI.button.backup.browse.textContent = 'Change file...';
+    } else {
+        UI.field.backup.filename.textContent = 'No file selected';
+        UI.button.backup.browse.textContent = 'Select file...'
+    }
 }
 
 /**
@@ -471,7 +482,8 @@ const UI = {
         },
         backup: {
             file: document.getElementById('backup-file'),
-            overwrite: document.getElementById('backup-overwrite')
+            overwrite: document.getElementById('backup-overwrite'),
+            filename: document.getElementById('backup-filename')
         },
         search: document.getElementById('search')
     },
@@ -489,7 +501,8 @@ const UI = {
         backup: {
             download: document.getElementById('backup-download'),
             upload: document.getElementById('backup-upload'),
-            cancel: document.getElementById('backup-finish')
+            cancel: document.getElementById('backup-finish'),
+            browse: document.getElementById('backup-browse')
         }
     },
     error: {
@@ -522,6 +535,7 @@ UI.button.add.submit.addEventListener('click', addWebsite);
 UI.field.add.mode.addEventListener('change', updatePlaceholder);
 UI.button.backup.download.addEventListener('click', downloadBackup);
 UI.button.backup.upload.addEventListener('click', restoreBackup);
-UI.field.backup.file.addEventListener('change', toggleRestoreButton);
+UI.field.backup.file.addEventListener('change', updateRestoreSection);
 UI.field.search.addEventListener('keyup', search);
 UI.button.add.help.addEventListener('click', openHelp);
+UI.button.backup.browse.addEventListener('click', () => { UI.field.backup.file.click(); });

@@ -27,12 +27,11 @@
 }
 
 #backup-file {
-  border: none !important;
+  visibility: hidden !important;
+  width: 0px;
 }
 
-.closed,
-.hidden,
-.hide {
+.hidden {
   display: none !important;
 }
 
@@ -48,4 +47,15 @@
 
 #search:disabled {
   cursor: not-allowed;
+}
+
+#backup-overwrite-container {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  margin: 0.5em 0;
+}
+
+#backup-overwrite {
+  margin-right: 1em;
 }
