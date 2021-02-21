@@ -179,7 +179,6 @@ function enableAllButtons(enable) {
         button.disabled = !enable;
     }
 
-    console.log(selectedListItem);
     if (enable && selectedListItem == null) {
         UI.button.main.delete.disabled = true;
     }
@@ -356,7 +355,12 @@ async function restoreBackup() {
  * @param {FileReaderEvent} event 
  */
 function processBackupFile(event) {
-    const data = JSON.parse(event.target.result);
+    try {
+        const data = JSON.parse(event.target.result);
+    } catch (error) {
+        UI.error.backup.textContent = 'Invalid file';
+        return;
+    }
 
     if (!data.urlList) {
         UI.error.backup.textContent = 'Invalid file';
