@@ -1,10 +1,9 @@
 class Website {
-    url = '';
-    domain = '';
-    subdomain = '';
-    path = '';
 
     constructor(url) {
+        this.domain = '';
+        this.subdomain = '';
+        this.path = '';
         this.url = url;
         url = url.substring(url.indexOf('//') + 2, url.length);
 
