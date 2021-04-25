@@ -321,15 +321,21 @@ function updateListSize() {
  * Convert Storage API data to downloaded file
  */
 async function downloadBackup() {
-    const data = await browser.storage.sync.get();
-    const file = new Blob([JSON.stringify(data)], {type: 'application/json'});
-    const fileURL = URL.createObjectURL(file);
+    UI.error.backup.textContent = '';
 
-    browser.downloads.download({
-        filename: `website-blocker-backup-${Date.now()}.json`,
-        saveAs: true,
-        url: fileURL
-    });
+    if (await browser.permissions.request({ permissions: ['downloads'] })) {
+        const data = await browser.storage.sync.get();
+        const file = new Blob([JSON.stringify(data)], {type: 'application/json'});
+        const fileURL = URL.createObjectURL(file);
+
+        browser.downloads.download({
+            filename: `website-blocker-backup-${Date.now()}.json`,
+            saveAs: true,
+            url: fileURL
+        });
+    } else {
+        UI.error.backup.textContent = 'Add-on does not have permission to create downloads';
+    }
 }
 
 /**
