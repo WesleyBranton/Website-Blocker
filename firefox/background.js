@@ -62,9 +62,6 @@ async function checkData() {
 function handleInstalled(details) {
     if (details.reason == 'install') {
         browser.runtime.openOptionsPage();
-    } else if (details.reason == 'update') {
-        const { version } = browser.runtime.getManifest();
-        if (version == details.previousVersion) browser.runtime.openOptionsPage();
     }
 }
 
