@@ -19,100 +19,99 @@
   <div id="private-browsing-warning" class="panel-section has-help hidden">
     <div class="message-bar warning">
       <span>
-        Websites are not being blocked in Private Browsing mode because you have not given this add-on permission to run in Private Browsing.
-        <a href="https://github.com/WesleyBranton/Website-Blocker/wiki/Allow-addon-to-run-in-Private-Browsing-mode" target="_blank">Learn More</a>
+        <span data-i18n="bannerPrivateBrowsing"></span>
+        <a href="https://github.com/WesleyBranton/Website-Blocker/wiki/Allow-addon-to-run-in-Private-Browsing-mode" target="_blank" data-i18n="actionLearnMore"></a>
       </span>
     </div>
   </div>
 
   <div id="dialog-add" class="dialog hidden">
     <div class="panel-section has-help">
-      <b>Add Filter</b>
+      <strong data-i18n="headerAdd"></strong>
     </div>
     <div class="panel-section has-help">
-      <label for="add-mode">Type of filter</label>
+      <label for="add-mode" data-i18n="addModeLabel"></label>
       <select id="add-mode" style="flex: 2;">
-        <option value="domain" selected>Block domain (Default)</option>
-        <option value="subdomain">Block domain & all subdomains</option>
-        <option value="page">Block a specific page</option>
-        <option value="custom">Fully custom (Advanced only)</option>
+        <option value="domain" selected data-i18n="addModeDomain"></option>
+        <option value="subdomain" data-i18n="addModeSubdomain"></option>
+        <option value="page" data-i18n="addModePage"></option>
+        <option value="custom" data-i18n="addModeCustom"></option>
       </select>
     </div>
     <div class="panel-section has-help">
-      <label for="add-url">Filter rule</label>
+      <label for="add-url" data-i18n="addUrlLabel"></label>
       <input type="text" id="add-url" placeholder="*.example.com" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="flex: 2;">
     </div>
     <div class="panel-section">
       <div id="error-add" class="error"></div>
       <div>
-        <button id="add-help" class="ghost">Help</button>
-        <button id="add-cancel" class="secondary">Cancel</button>
-        <button id="add-finish" class="default">Add</button>
+        <button id="add-help" class="ghost" data-i18n="actionHelp"></button>
+        <button id="add-cancel" class="secondary" data-i18n="actionCancel"></button>
+        <button id="add-finish" class="default" data-i18n="actionAdd"></button>
       </div>
     </div>
   </div>
 
   <div id="dialog-backup" class="dialog hidden">
     <div class="panel-section has-help">
-      <b>Import / Export</b>
+      <strong data-i18n="actionImportAndExport" data-i18n-placeholders="actionImport, actionExport"></strong>
     </div>
     <div class="panel-section">
-      <label>Export to file</label>
-      <button id="backup-download" class="default">Export</button>
+      <label data-i18n="exportLabel"></label>
+      <button id="backup-download" class="default" data-i18n="actionExport"></button>
     </div>
     <div class="panel-section-separator"></div>
     <div class="panel-section">
-      <label>Import from file</label>
+      <label data-i18n="importLabel"></label>
       <div style="text-align: right;">
-        <label id="backup-filename">
-          No file selected
-        </label>
+        <label id="backup-filename" data-i18n="importNoFile"></label>
         <br>
         <label id="backup-overwrite-container" for="backup-overwrite">
           <input type="checkbox" id="backup-overwrite">
-          Clear existing data
+          <span data-i18n="importClearExisting"></span>
         </label>
         <br>
         <input id="backup-file" type="file" accept=".json">
-        <button id="backup-browse" class="default">Select file...</button>
-        <button id="backup-upload" class="default" disabled>Import</button>
+        <button id="backup-browse" class="default" data-i18n="importSelectFile"></button>
+        <button id="backup-upload" class="default" data-i18n="actionImport" disabled></button>
       </div>
     </div>
     <div class="panel-section-separator"></div>
     <div class="panel-section">
       <div id="error-backup" class="error"></div>
       <div>
-        <button id="backup-finish" class="default">Close</button>
+        <button id="backup-finish" class="default" data-i18n="actionClose"></button>
       </div>
     </div>
   </div>
 
   <div class="panel-section has-help">
     <div class="button-row">
-      <button id='button-add' class="default">Add</button>
-      <button id='button-delete' class="default" disabled>Delete</button>
-      <button id='button-backup' class="default">Import / Export</button>
+      <button id='button-add' class="default" data-i18n="actionAdd"></button>
+      <button id='button-delete' class="default" disabled data-i18n="actionDelete"></button>
+      <button id='button-backup' class="default" data-i18n="actionImportAndExport" data-i18n-placeholders="actionImport, actionExport"></button>
     </div>
   </div>
   <div class="panel-section has-help">
     <div class="button-row">
-      <input id="search" type="text" placeholder="Search">
+      <input id="search" type="text">
     </div>
   </div>
   <div class="panel-section has-help">
-    <b>Blocked Websites</b>
+    <strong data-i18n="headerList"></strong>
   </div>
   <div class="panel-section help-row">
     <div id="url-list" class="panel-section panel-section-list"></div>
   </div>
   <div class="panel-section help-row">
-    <div id="url-list-empty" class="panel-section">No websites blocked</div>
+    <div id="url-list-empty" class="panel-section" data-i18n="listEmpty"></div>
   </div>
   <div class="panel-section help-row hidden">
-    <div id="url-list-notfound" class="panel-section">No websites found</div>
+    <div id="url-list-notfound" class="panel-section" data-i18n="listEmptySearch"></div>
   </div>
 
   <script src="script/class/Website.js"></script>
+  <script src="../lib/i18n_helper.js"></script>
   <script src="script/main.js"></script>
 </body>
 

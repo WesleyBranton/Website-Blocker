@@ -1,0 +1,154 @@
+{
+    "extensionName": {
+        "message": "Website Blocker"
+    },
+    "extensionDescription": {
+        "message": "Block websites with ease!"
+    },
+
+    "optionsTitle": {
+        "message": "$EXTENSIONNAME$ Options",
+        "placeholders": {
+            "extensionname": {
+                "content": "$1"
+            }
+        }
+    },
+
+    "actionLearnMore": {
+        "message": "Learn more…"
+    },
+    "actionHelp": {
+        "message": "Help"
+    },
+    "actionAdd": {
+        "message": "Add"
+    },
+    "actionDelete": {
+        "message": "Delete"
+    },
+    "actionCancel": {
+        "message": "Cancel"
+    },
+    "actionClose": {
+        "message": "Close"
+    },
+    "actionSearch": {
+        "message": "Search"
+    },
+    "actionImport": {
+        "message": "Import"
+    },
+    "actionExport": {
+        "message": "Export"
+    },
+    "actionImportAndExport": {
+        "message": "$IMPORT$ / $EXPORT$",
+        "placeholders": {
+            "import": {
+                "content": "$1"
+            },
+            "export": {
+                "content": "$2"
+            }
+        }
+    },
+
+    "headerAdd": {
+        "message": "Add Filter"
+    },
+    "headerList": {
+        "message": "Blocked Websites"
+    },
+
+    "bannerPrivateBrowsing": {
+        "message": "Websites are not being blocked in Private Browsing mode because you have not given this add-on permission to run in Private Browsing."
+    },
+
+    "listEmpty": {
+        "message": "No websites blocked"
+    },
+    "listEmptySearch": {
+        "message": "No websites found"
+    },
+
+    "addUrlLabel": {
+        "message": "Filter rule"
+    },
+    "addModeLabel": {
+        "message": "Type of filter"
+    },
+    "addModeDomain": {
+        "message": "Block domain (Default)"
+    },
+    "addModeSubdomain": {
+        "message": "Block domain & all subdomains"
+    },
+    "addModePage": {
+        "message": "Block a specific page"
+    },
+    "addModeCustom": {
+        "message": "Fully custom (Advanced only)"
+    },
+    "addModeDomainPlaceholder": {
+        "message": "example.com or test.example.com"
+    },
+    "addModeSubdomainPlaceholder": {
+        "message": "example.com"
+    },
+    "addModePagePlaceholder": {
+        "message": "example.com/page"
+    },
+    "addModeCustomPlaceholder": {
+        "message": "Custom URL Pattern"
+    },
+
+    "importClearExisting": {
+        "message": "Clear existing data"
+    },
+    "importSelectFile": {
+        "message": "Select file…"
+    },
+    "importChangeFile": {
+        "message": "Change file…"
+    },
+    "importNoFile": {
+        "message": "No file selected"
+    },
+    "importLabel": {
+        "message": "Import from file"
+    },
+
+    "exportLabel": {
+        "message": "Export to file"
+    },
+
+    "errorInvalidUrl": {
+        "message": "Invalid website URL"
+    },
+    "errorAlreadyBlocked": {
+        "message": "This website is already blocked"
+    },
+    "errorExportPermission": {
+        "message": "Add-on does not have permission to create downloads"
+    },
+    "errorImportMultiple": {
+        "message": "Cannot load multiple files"
+    },
+    "errorImportInvalidFile": {
+        "message": "Invalid file"
+    },
+    "errorImportFileNoData": {
+        "message": "File contains no data"
+    },
+    
+    "blockPageTitle": {
+        "message": "Website blocked!"
+    },
+    "blockPageTextTop": {
+        "message": "Website"
+    },
+    "blockPageTextBottom": {
+        "message": "Blocked"
+    }
+}
