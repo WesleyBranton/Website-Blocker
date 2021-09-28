@@ -200,7 +200,7 @@ function addWebsite() {
 
     // Check if URL is empty
     if (filter.length < 1) {
-        UI.error.add.textContent = 'Invalid website URL';
+        UI.error.add.textContent = browser.i18n.getMessage('errorInvalidUrl');
         return;
     }
 
@@ -241,7 +241,7 @@ function insertWebsite(url) {
         if (compareWebsite(website, w) > 0) {
             ++index;
         } else if (compareWebsite(website, w) == 0) {
-            UI.error.add.textContent = 'This website is already blocked';
+            UI.error.add.textContent = browser.i18n.getMessage('errorAlreadyBlocked');
             return false;
         } else {
             break;
@@ -262,16 +262,16 @@ function updatePlaceholder() {
 
     switch (mode) {
         case 'domain':
-            text = 'example.com or test.example.com';
+            text = browser.i18n.getMessage('addModeDomainPlaceholder');
             break;
         case 'subdomain':
-            text = 'example.com';
+            text = browser.i18n.getMessage('addModeSubdomainPlaceholder');
             break;
         case 'page':
-            text = 'example.com/page';
+            text = browser.i18n.getMessage('addModePagePlaceholder');
             break;
         case 'custom':
-            text = 'Custom URL Pattern';
+            text = browser.i18n.getMessage('addModeCustomPlaceholder');
             break;
     }
 
@@ -334,7 +334,7 @@ async function downloadBackup() {
             url: fileURL
         });
     } else {
-        UI.error.backup.textContent = 'Add-on does not have permission to create downloads';
+        UI.error.backup.textContent = browser.i18n.getMessage('errorExportPermission');
     }
 }
 
@@ -345,7 +345,7 @@ async function restoreBackup() {
     UI.error.backup.textContent = '';
 
     if (UI.field.backup.file.files.length != 1) {
-        UI.error.backup.textContent = 'Cannot load multiple files';
+        UI.error.backup.textContent = browser.i18n.getMessage('errorImportMultiple');
         return false;
     }
 
@@ -364,15 +364,15 @@ function processBackupFile(event) {
     try {
         const data = JSON.parse(event.target.result);
     } catch (error) {
-        UI.error.backup.textContent = 'Invalid file';
+        UI.error.backup.textContent = browser.i18n.getMessage('errorImportInvalidFile');
         return;
     }
 
     if (!data.urlList) {
-        UI.error.backup.textContent = 'Invalid file';
+        UI.error.backup.textContent = browser.i18n.getMessage('errorImportInvalidFile');
         return;
     } else if (data.urlList.length < 1) {
-        UI.error.backup.textContent = 'File contains no data';
+        UI.error.backup.textContent = browser.i18n.getMessage('errorImportFileNoData');
         return;
     }
 
@@ -403,10 +403,10 @@ function updateRestoreSection() {
 
     if (UI.field.backup.file.files.length == 1) {
         UI.field.backup.filename.textContent = UI.field.backup.file.files[0].name;
-        UI.button.backup.browse.textContent = 'Change file...';
+        UI.button.backup.browse.textContent = browser.i18n.getMessage('importChangeFile');
     } else {
-        UI.field.backup.filename.textContent = 'No file selected';
-        UI.button.backup.browse.textContent = 'Select file...'
+        UI.field.backup.filename.textContent = browser.i18n.getMessage('importNoFile');
+        UI.button.backup.browse.textContent = browser.i18n.getMessage('importSelectFile');
     }
 }
 
@@ -532,6 +532,9 @@ let selectedListItem = null;
 let websites = new Array();
 let dialogOpen = false;
 UI.field.search.value = '';
+UI.field.search.placeholder = browser.i18n.getMessage('actionSearch');
+document.title = browser.i18n.getMessage('optionsTitle', browser.i18n.getMessage('extensionName'));
+i18nParse();
 checkPrivateBrowsing();
 loadFromStorage();
 
