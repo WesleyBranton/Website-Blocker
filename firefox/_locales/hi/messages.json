@@ -1,0 +1,154 @@
+{
+  "extensionName": {
+    "message": "वेबसाइट अवरोधक"
+  },
+  "extensionDescription": {
+    "message": "आसानी से वेबसाइटों को ब्लॉक करें!"
+  },
+
+  "optionsTitle": {
+    "message": "$EXTENSIONNAME$ विकल्प",
+    "placeholders": {
+      "extensionname": {
+        "content": "$1"
+      }
+    }
+  },
+
+  "actionLearnMore": {
+    "message": "और अधिक जानें…"
+  },
+  "actionHelp": {
+    "message": "मदद"
+  },
+  "actionAdd": {
+    "message": "जोड़ें"
+  },
+  "actionDelete": {
+    "message": "हटाएं"
+  },
+  "actionCancel": {
+    "message": "रद्द करें"
+  },
+  "actionClose": {
+    "message": "बंद करे"
+  },
+  "actionSearch": {
+    "message": "खोज"
+  },
+  "actionImport": {
+    "message": "आयात"
+  },
+  "actionExport": {
+    "message": "निर्यात"
+  },
+  "actionImportAndExport": {
+    "message": "$IMPORT$ / $EXPORT$",
+    "placeholders": {
+      "import": {
+        "content": "$1"
+      },
+      "export": {
+        "content": "$2"
+      }
+    }
+  },
+
+  "headerAdd": {
+    "message": "फ़िल्टर जोड़ें"
+  },
+  "headerList": {
+    "message": "अवरुद्ध वेबसाइटें"
+  },
+
+  "bannerPrivateBrowsing": {
+    "message": "निजी ब्राउज़िंग मोड में वेबसाइटों को अवरुद्ध नहीं किया जा रहा है क्योंकि आपने निजी ब्राउज़िंग में चलाने के लिए यह ऐड-ऑन को अनुमति नहीं दी है।"
+  },
+
+  "listEmpty": {
+    "message": "कोई वेबसाइट अवरुद्ध नहीं हुई"
+  },
+  "listEmptySearch": {
+    "message": "कोई वेबसाइट नहीं मिली"
+  },
+
+  "addUrlLabel": {
+    "message": "नियम फ़िल्टर करें"
+  },
+  "addModeLabel": {
+    "message": "फ़िल्टर का प्रकार"
+  },
+  "addModeDomain": {
+    "message": "ब्लॉक डोमेन (डिफ़ॉल्ट)"
+  },
+  "addModeSubdomain": {
+    "message": "ब्लॉक डोमेन और सभी सबडोमेन"
+  },
+  "addModePage": {
+    "message": "एक विशिष्ट पृष्ठ को अवरुद्ध करें"
+  },
+  "addModeCustom": {
+    "message": "पूरी तरह से कस्टम (केवल उन्नत)"
+  },
+  "addModeDomainPlaceholder": {
+    "message": "example.com या test.example.com"
+  },
+  "addModeSubdomainPlaceholder": {
+    "message": "example.com"
+  },
+  "addModePagePlaceholder": {
+    "message": "example.com/page"
+  },
+  "addModeCustomPlaceholder": {
+    "message": "कस्टम यूआरएल पैटर्न चुनें"
+  },
+
+  "importClearExisting": {
+    "message": "मौजूदा डेटा साफ़ करें"
+  },
+  "importSelectFile": {
+    "message": "फ़ाइल का चयन करें…"
+  },
+  "importChangeFile": {
+    "message": "फ़ाइल बदलें ..."
+  },
+  "importNoFile": {
+    "message": "कोई फ़ाइल चयनित नहीं"
+  },
+  "importLabel": {
+    "message": "फ़ाइल से आयात"
+  },
+
+  "exportLabel": {
+    "message": "फाइल करने के लिए निर्यात"
+  },
+
+  "errorInvalidUrl": {
+    "message": "अमान्य वेबसाइट यूआरएल"
+  },
+  "errorAlreadyBlocked": {
+    "message": "यह वेबसाइट पहले से ही अवरुद्ध है"
+  },
+  "errorExportPermission": {
+    "message": "ऐड-ऑन में डाउनलोड करने की अनुमति नहीं है"
+  },
+  "errorImportMultiple": {
+    "message": "कई फाइलें लोड नहीं कर सकते"
+  },
+  "errorImportInvalidFile": {
+    "message": "अवैध फाइल"
+  },
+  "errorImportFileNoData": {
+    "message": "फ़ाइल में कोई डेटा नहीं है"
+  },
+
+  "blockPageTitle": {
+    "message": "वेबसाइट अवरुद्ध!"
+  },
+  "blockPageTextTop": {
+    "message": "वेबसाइट"
+  },
+  "blockPageTextBottom": {
+    "message": "अवरोधित"
+  }
+}
