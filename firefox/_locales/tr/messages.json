@@ -1,0 +1,154 @@
+{
+    "extensionName": {
+        "message": "Website Blocker"
+    },
+    "extensionDescription": {
+        "message": "Kolaylıkla website engelle!"
+    },
+
+    "optionsTitle": {
+        "message": "$EXTENSIONNAME$ Seçenekleri",
+        "placeholders": {
+            "extensionname": {
+                "content": "$1"
+            }
+        }
+    },
+
+    "actionLearnMore": {
+        "message": "Daha fazlasını öğren…"
+    },
+    "actionHelp": {
+        "message": "Yardım"
+    },
+    "actionAdd": {
+        "message": "Ekle"
+    },
+    "actionDelete": {
+        "message": "Kaldır"
+    },
+    "actionCancel": {
+        "message": "İptal"
+    },
+    "actionClose": {
+        "message": "Kapat"
+    },
+    "actionSearch": {
+        "message": "Ara"
+    },
+    "actionImport": {
+        "message": "İçe Aktar"
+    },
+    "actionExport": {
+        "message": "Dışa Aktar"
+    },
+    "actionImportAndExport": {
+        "message": "$IMPORT$ / $EXPORT$",
+        "placeholders": {
+            "import": {
+                "content": "$1"
+            },
+            "export": {
+                "content": "$2"
+            }
+        }
+    },
+
+    "headerAdd": {
+        "message": "Filtre Ekle"
+    },
+    "headerList": {
+        "message": "Engellenmiş Websiteler"
+    },
+
+    "bannerPrivateBrowsing": {
+        "message": "Websiteler Gizli Gezinti modunda engellenmiyor çünkü bu eklentiye Gizli Gezinti modunda çalışma izni vermediniz."
+    },
+
+    "listEmpty": {
+        "message": "Hiçbir website engelli değil"
+    },
+    "listEmptySearch": {
+        "message": "Hiçbir website bulunamadı"
+    },
+
+    "addUrlLabel": {
+        "message": "Filtre kuralı"
+    },
+    "addModeLabel": {
+        "message": "Filtre türü"
+    },
+    "addModeDomain": {
+        "message": "Alan adı engelle (Varsayılan)"
+    },
+    "addModeSubdomain": {
+        "message": "Alan adı & ve tüm alt alan adlarını engelle"
+    },
+    "addModePage": {
+        "message": "Belirli bir sayfayı engelle"
+    },
+    "addModeCustom": {
+        "message": "Tamamen özel (Gelişmiş için)"
+    },
+    "addModeDomainPlaceholder": {
+        "message": "example.com veya test.example.com"
+    },
+    "addModeSubdomainPlaceholder": {
+        "message": "example.com"
+    },
+    "addModePagePlaceholder": {
+        "message": "example.com/page"
+    },
+    "addModeCustomPlaceholder": {
+        "message": "Özel URL Şablonu"
+    },
+
+    "importClearExisting": {
+        "message": "Mevcut veriyi temizle"
+    },
+    "importSelectFile": {
+        "message": "Dosya seç…"
+    },
+    "importChangeFile": {
+        "message": "Dosya değiştir…"
+    },
+    "importNoFile": {
+        "message": "Dosya seçilmedi"
+    },
+    "importLabel": {
+        "message": "Dosyadan aktar"
+    },
+
+    "exportLabel": {
+        "message": "Dosyaya aktar"
+    },
+
+    "errorInvalidUrl": {
+        "message": "Geçersiz website URL'si"
+    },
+    "errorAlreadyBlocked": {
+        "message": "Bu website zaten engelli"
+    },
+    "errorExportPermission": {
+        "message": "Eklenti, indirme oluşturmak için yetkiye sahip değil"
+    },
+    "errorImportMultiple": {
+        "message": "Birden fazla dosya yüklenemiyor"
+    },
+    "errorImportInvalidFile": {
+        "message": "Geçersiz dosya"
+    },
+    "errorImportFileNoData": {
+        "message": "Dosya veri içermiyor"
+    },
+    
+    "blockPageTitle": {
+        "message": "Website engellendi!"
+    },
+    "blockPageTextTop": {
+        "message": "Website"
+    },
+    "blockPageTextBottom": {
+        "message": "Engellendi"
+    }
+}
