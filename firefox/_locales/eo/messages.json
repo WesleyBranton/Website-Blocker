@@ -1,0 +1,154 @@
+{
+    "extensionName": {
+        "message": "Website Blocker"
+    },
+    "extensionDescription": {
+        "message": "Baru retejojn facile!"
+    },
+
+    "optionsTitle": {
+        "message": "$EXTENSIONNAME$ Opcioj",
+        "placeholders": {
+            "extensionname": {
+                "content": "$1"
+            }
+        }
+    },
+
+    "actionLearnMore": {
+        "message": "Lernu pli…"
+    },
+    "actionHelp": {
+        "message": "Helpi"
+    },
+    "actionAdd": {
+        "message": "Aldoni"
+    },
+    "actionDelete": {
+        "message": "Forigi"
+    },
+    "actionCancel": {
+        "message": "Nuligi"
+    },
+    "actionClose": {
+        "message": "Fermi"
+    },
+    "actionSearch": {
+        "message": "Serĉi"
+    },
+    "actionImport": {
+        "message": "Importi"
+    },
+    "actionExport": {
+        "message": "Eksporti"
+    },
+    "actionImportAndExport": {
+        "message": "$IMPORT$ / $EXPORT$",
+        "placeholders": {
+            "import": {
+                "content": "$1"
+            },
+            "export": {
+                "content": "$2"
+            }
+        }
+    },
+
+    "headerAdd": {
+        "message": "Aldoni Filtrilon"
+    },
+    "headerList": {
+        "message": "Barita Retejoj"
+    },
+
+    "bannerPrivateBrowsing": {
+        "message": "Retejoj ne estas barata en Privata Retumada modo ĉar vi ne donis al ĉi tiu aldonaĵo permeson funkcii en Privata Retumada modo."
+    },
+
+    "listEmpty": {
+        "message": "Neniuj retejoj bariĝas"
+    },
+    "listEmptySearch": {
+        "message": "Neniuj retejoj troviĝis"
+    },
+
+    "addUrlLabel": {
+        "message": "Filtro regulo"
+    },
+    "addModeLabel": {
+        "message": "Speco de filtro"
+    },
+    "addModeDomain": {
+        "message": "Baru domajnon (Defaŭlta)"
+    },
+    "addModeSubdomain": {
+        "message": "Baru domajnon & ĉiuj subdomajnoj"
+    },
+    "addModePage": {
+        "message": "Baru specifa paĝo"
+    },
+    "addModeCustom": {
+        "message": "Plene propra (Nur altnivela)"
+    },
+    "addModeDomainPlaceholder": {
+        "message": "example.com aŭ test.example.com"
+    },
+    "addModeSubdomainPlaceholder": {
+        "message": "example.com"
+    },
+    "addModePagePlaceholder": {
+        "message": "example.com/page"
+    },
+    "addModeCustomPlaceholder": {
+        "message": "Propra URL Ŝablono"
+    },
+
+    "importClearExisting": {
+        "message": "Klarigi ekzistantajn datumojn"
+    },
+    "importSelectFile": {
+        "message": "Elekti dosieron…"
+    },
+    "importChangeFile": {
+        "message": "Sanĝi dosieron…"
+    },
+    "importNoFile": {
+        "message": "Neniu dosiero elektiĝas"
+    },
+    "importLabel": {
+        "message": "Importi el dosiero"
+    },
+
+    "exportLabel": {
+        "message": "Eksporti al dosiero"
+    },
+
+    "errorInvalidUrl": {
+        "message": "Nevalida reteja URL"
+    },
+    "errorAlreadyBlocked": {
+        "message": "Ĉi tiu retejo estas jam barita"
+    },
+    "errorExportPermission": {
+        "message": "Aldonaĵo ne havas permeson krei elŝutaĵojn"
+    },
+    "errorImportMultiple": {
+        "message": "Ne eblas ŝarĝi multajn dosierojn"
+    },
+    "errorImportInvalidFile": {
+        "message": "Nevalida dosiero"
+    },
+    "errorImportFileNoData": {
+        "message": "Dosiero enhavas neniujn datumojn"
+    },
+    
+    "blockPageTitle": {
+        "message": "Retejo bariĝis!"
+    },
+    "blockPageTextTop": {
+        "message": "Retejo"
+    },
+    "blockPageTextBottom": {
+        "message": "Bariĝis"
+    }
+}
