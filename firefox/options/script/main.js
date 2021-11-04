@@ -4,15 +4,9 @@
  * @returns List item container
  */
 function createItem(url) {
-    const container = document.createElement('div');
-    container.className = 'panel-list-item';
-
-    const item = document.createElement('div');
-    item.className = 'text';
-    item.textContent = url;
-
-    container.appendChild(item);
-    return container;
+    const item = document.getElementById('template-rule').content.cloneNode(true).children[0];
+    item.getElementsByClassName('text')[0].textContent = url;
+    return item;
 }
 
 /**
