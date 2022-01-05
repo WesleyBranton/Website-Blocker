@@ -361,14 +361,15 @@ async function restoreBackup() {
  * @param {FileReaderEvent} event 
  */
 function processBackupFile(event) {
+    let data = null;
     try {
-        const data = JSON.parse(event.target.result);
+        data = JSON.parse(event.target.result);
     } catch (error) {
         UI.error.backup.textContent = browser.i18n.getMessage('errorImportInvalidFile');
         return;
     }
 
-    if (!data.urlList) {
+    if (data == null || !data.urlList) {
         UI.error.backup.textContent = browser.i18n.getMessage('errorImportInvalidFile');
         return;
     } else if (data.urlList.length < 1) {
