@@ -5,6 +5,7 @@
  */
 function createItem(url) {
     const item = document.getElementById('template-rule').content.cloneNode(true).children[0];
+    item.dataset.for = url;
     item.getElementsByClassName('text')[0].textContent = url;
     return item;
 }
@@ -61,45 +62,57 @@ function selectWebsite(event) {
         return;
     }
 
-    if (event != null) {
-        selectedListItem = event.target;
-        while (!selectedListItem.classList.contains('panel-list-item') && selectedListItem.id != 'url-list') {
-            selectedListItem = selectedListItem.parentNode;
-        }
+    let listItem = event.target;
+    const isCheckbox = event.target.classList.contains('checkbox');
 
-        if (selectedListItem.id == 'url-list') {
-            selectedListItem = null;
-            return;
-        }
+    while (!listItem.classList.contains('panel-list-item')) {
+        listItem = listItem.parentNode;
     }
 
-    const previouslySelected = document.querySelector('.panel-list-item.selected');
-
-    if (previouslySelected) {
-        previouslySelected.classList.remove('selected');
-    }
-    
-    if (previouslySelected != selectedListItem) {
-        selectedListItem.classList.add('selected');
-    } else {
-        selectedListItem = null;
+    if (!isCheckbox) {
+        const checkbox = listItem.getElementsByClassName('checkbox')[0];
+        checkbox.checked = !checkbox.checked;
     }
 
-    UI.button.main.delete.disabled = (selectedListItem == null);
+    UI.button.main.delete.disabled = (getSelectedWebsites().length < 1);
 }
 
 /**
- * Delete selected website from list
+ * Get list of selected list items
+ * @returns Selected list items
+ */
+function getSelectedWebsites() {
+    const selected = [];
+
+    for (const c of UI.list.getElementsByClassName('checkbox')) {
+        if (c.checked) {
+            let parent = c;
+            while (!parent.classList.contains('panel-list-item')) {
+                parent = parent.parentElement;
+            }
+            selected.push(parent);
+        }
+    }
+
+    return selected;
+}
+
+/**
+ * Delete selected websites from list
  */
 function deleteWebsite() {
-    if (selectedListItem == null) {
+    const selected = getSelectedWebsites();
+
+    if (selected.length < 1) {
         return;
     }
 
-    selectedListItem.remove();
+    for (const item of selected) {
+        websites.splice(findWebsite(item.dataset.for), 1);
+        item.remove();
+    }
+    
     UI.button.main.delete.disabled = true;
-    websites.splice(findWebsite(selectedListItem), 1);
-    selectedListItem = null;
 
     saveToStorage();
     updateListSize();
@@ -107,12 +120,11 @@ function deleteWebsite() {
 }
 
 /**
- * Find list item in array data
- * @param {HTMLElement} item 
+ * Find URL index in array data
+ * @param {String} url
  * @returns Index in array
  */
-function findWebsite(item) {
-    const url = item.textContent.trim();
+function findWebsite(url) {
     let index = 0;
 
     for (const website of websites) {
@@ -140,7 +152,6 @@ function openAddDialog(open) {
     }
 
     dialogOpen = open;
-    selectWebsite(null);
     enableAllButtons(!open);
 }
 
@@ -160,7 +171,6 @@ function openBackupDialog(open) {
     }
 
     dialogOpen = open;
-    selectWebsite(null);
     enableAllButtons(!open);
 }
 
@@ -173,9 +183,11 @@ function enableAllButtons(enable) {
         button.disabled = !enable;
     }
 
-    if (enable && selectedListItem == null) {
-        UI.button.main.delete.disabled = true;
+    for (const checkbox of UI.list.getElementsByClassName('checkbox')) {
+        checkbox.disabled = !enable;
     }
+
+    UI.button.main.delete.disabled = (!enable || getSelectedWebsites().length < 1);
 }
 
 /**
@@ -429,13 +441,6 @@ function search() {
     }
     
     toggleSearchMessage(found);
-
-    if (selectedListItem != null) {
-        const selected = document.querySelector('.panel-list-item.selected');
-        if (selected == null || selected.classList.contains('hidden')) {
-            selectWebsite(null);
-        }
-    }
 }
 
 /**
