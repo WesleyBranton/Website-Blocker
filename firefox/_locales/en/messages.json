@@ -60,6 +60,9 @@
     "headerList": {
         "message": "Blocked Websites"
     },
+    "headerSettings": {
+        "message": "Advanced Options"
+    },
 
     "bannerPrivateBrowsing": {
         "message": "Websites are not being blocked in Private Browsing mode because you have not given this add-on permission to run in Private Browsing."
@@ -70,6 +73,17 @@
     },
     "listEmptySearch": {
         "message": "No websites found"
+    },
+
+    "optionShowError": {
+        "message": "Show error on blocked websites?"
+    },
+
+    "valueYes": {
+        "message": "Yes"
+    },
+    "valueNo": {
+        "message": "No"
     },
 
     "addUrlLabel": {
