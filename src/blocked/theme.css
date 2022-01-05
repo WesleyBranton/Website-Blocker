@@ -4,47 +4,48 @@
 
 /* Set cursor and disable text selection */
 * {
-  cursor: default;
-  -moz-user-select: none;
+    cursor: default;
+    user-select: none;
+    -moz-user-select: none;
 }
 
 /* Body */
 body {
-  background: #FF950E;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0px;
-  padding: 0px;
+    background: #FF950E;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
 }
 
 /* Center everything */
 div {
-  margin: auto;
+    margin: auto;
 }
 
 /* Spacers */
 .spacer,
 .content * {
-  flex: 1;
+    flex: 1;
 }
 
 /* Content container */
 .content {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 /* Text */
 .content span {
-  color: white;
-  font: bold 4vh sans-serif;
-  text-transform: uppercase;
+    color: white;
+    font: bold 4vh sans-serif;
+    text-transform: uppercase;
 }
 
 /* Logo */
 img {
-  margin: auto;
-  width: 20vh;
+    margin: auto;
+    width: 20vh;
 }

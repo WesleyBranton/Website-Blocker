@@ -50,10 +50,10 @@
 
     "permissions": [
         "storage",
-		"webRequest",
-		"webRequestBlocking",
-		"<all_urls>"
-	],
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
 
     "optional_permissions": [
         "downloads"

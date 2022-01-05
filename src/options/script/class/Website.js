@@ -14,7 +14,7 @@ class Website {
 
         let parts = url.split('.');
         this.domain = parts[parts.length - 2] + '.' + parts[parts.length - 1];
-        
+
         if (parts.length > 2) {
             this.subdomain = '';
             for (let i = 0; i < parts.length - 2; i++) {

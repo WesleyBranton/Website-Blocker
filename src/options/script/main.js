@@ -111,7 +111,7 @@ function deleteWebsite() {
         websites.splice(findWebsite(item.dataset.for), 1);
         item.remove();
     }
-    
+
     UI.button.main.delete.disabled = true;
 
     saveToStorage();
@@ -335,9 +335,13 @@ function updateListSize() {
 async function downloadBackup() {
     UI.error.backup.textContent = '';
 
-    if (await browser.permissions.request({ permissions: ['downloads'] })) {
+    if (await browser.permissions.request({
+            permissions: ['downloads']
+        })) {
         const data = await browser.storage.sync.get();
-        const file = new Blob([JSON.stringify(data)], {type: 'application/json'});
+        const file = new Blob([JSON.stringify(data)], {
+            type: 'application/json'
+        });
         const fileURL = URL.createObjectURL(file);
 
         browser.downloads.download({
@@ -398,7 +402,7 @@ function processBackupFile(event) {
             insertWebsite(url);
         }
     }
-    
+
     UI.field.backup.file.value = '';
     UI.field.backup.overwrite.checked = false;
     updateRestoreSection();
@@ -439,7 +443,7 @@ function search() {
             item.classList.add('hidden');
         }
     }
-    
+
     toggleSearchMessage(found);
 }
 
@@ -555,10 +559,18 @@ loadFromStorage();
 
 UI.list.addEventListener('click', selectWebsite);
 UI.button.main.delete.addEventListener('click', deleteWebsite);
-UI.button.main.add.addEventListener('click', () => { openAddDialog(true) });
-UI.button.add.cancel.addEventListener('click', () => { openAddDialog(false) });
-UI.button.main.backup.addEventListener('click', () => { openBackupDialog(true) });
-UI.button.backup.cancel.addEventListener('click', () => { openBackupDialog(false) });
+UI.button.main.add.addEventListener('click', () => {
+    openAddDialog(true)
+});
+UI.button.add.cancel.addEventListener('click', () => {
+    openAddDialog(false)
+});
+UI.button.main.backup.addEventListener('click', () => {
+    openBackupDialog(true)
+});
+UI.button.backup.cancel.addEventListener('click', () => {
+    openBackupDialog(false)
+});
 UI.button.add.submit.addEventListener('click', addWebsite);
 UI.field.add.mode.addEventListener('change', updatePlaceholder);
 UI.button.backup.download.addEventListener('click', downloadBackup);
@@ -566,5 +578,7 @@ UI.button.backup.upload.addEventListener('click', restoreBackup);
 UI.field.backup.file.addEventListener('change', updateRestoreSection);
 UI.field.search.addEventListener('keyup', search);
 UI.button.add.help.addEventListener('click', openHelp);
-UI.button.backup.browse.addEventListener('click', () => { UI.field.backup.file.click(); });
+UI.button.backup.browse.addEventListener('click', () => {
+    UI.field.backup.file.click();
+});
 document.settings.addEventListener('change', saveSettings);

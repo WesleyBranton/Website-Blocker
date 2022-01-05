@@ -1,57 +1,57 @@
 .panel-section-list :first-child {
-  flex: unset !important;
+    flex: unset !important;
 }
 
 .button-row {
-  display: flex;
+    display: flex;
 }
 
 .button-row > button {
-  flex: 1;
-  margin: 0 0.5em;
+    flex: 1;
+    margin: 0 0.5em;
 }
 
 #url-list {
-  max-height: 300px;
-  overflow: auto;
+    max-height: 300px;
+    overflow: auto;
 }
 
 #url-list-empty,
 #url-list-notfound {
-  padding: 4px 0;
-  font-style: italic;
+    padding: 4px 0;
+    font-style: italic;
 }
 
 #backup-file {
-  visibility: hidden !important;
-  width: 0px;
+    visibility: hidden !important;
+    width: 0px;
 }
 
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
 .error {
-  color: red;
+    color: red;
 }
 
 .dialog {
-  margin: auto 16px;
-  border: 1px solid var(--secondary-color-3);
-  padding: 0 0.5em;
+    margin: auto 16px;
+    border: 1px solid var(--secondary-color-3);
+    padding: 0 0.5em;
 }
 
 #search:disabled {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
 
 #backup-overwrite-container {
-  display: inline-flex;
-  align-items: center;
-  width: max-content;
-  margin: 0.5em 0;
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    margin: 0.5em 0;
 }
 
 #backup-overwrite {
-  margin-right: 1em;
+    margin-right: 1em;
 }
