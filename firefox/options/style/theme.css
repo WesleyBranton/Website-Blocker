@@ -2,15 +2,6 @@
   flex: unset !important;
 }
 
-.panel-list-item.selected {
-  background: var(--blue-60) !important;
-  color: white !important;
-}
-
-.panel-list-item.selected * {
-  color: white !important;
-}
-
 .button-row {
   display: flex;
 }
