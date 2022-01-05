@@ -20,6 +20,11 @@
   margin: 0 0.5em;
 }
 
+#url-list {
+  max-height: 300px;
+  overflow: auto;
+}
+
 #url-list-empty,
 #url-list-notfound {
   padding: 4px 0;

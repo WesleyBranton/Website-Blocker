@@ -11,20 +11,15 @@ async function createBlocker() {
     browser.webRequest.onBeforeRequest.removeListener(block);
 
     // Load URLs from storage
-    let urls = await browser.storage.sync.get();
+    const storage = await browser.storage.sync.get();
+    showError = (typeof storage.showError == 'boolean') ? storage.showError : true;
 
     // Check if there are URLs to load
-    if (urls.urlList) {
-        // Create URL fliter list
-        filter = [];
-        for (i = 0; i < urls.urlList.length; i++) {
-            filter.push(urls.urlList[i]);
-        }
-
+    if (storage.urlList) {
         // Create listener
-        if (filter.length > 0) {
+        if (storage.urlList.length > 0) {
             browser.webRequest.onBeforeRequest.addListener(block, {
-                urls: filter
+                urls: storage.urlList
             }, ["blocking"]);
         }
     }
@@ -35,9 +30,15 @@ async function createBlocker() {
  * @param {Object} requestDetails
  */
 function block(requestDetails) {
-    return {
-        redirectUrl: browser.runtime.getURL('/blocked/blockpage.html')
-    };
+    if (showError) {
+        return {
+            redirectUrl: browser.runtime.getURL('/blocked/blockpage.html')
+        };
+    } else {
+        return {
+            cancel: true
+        };
+    }
 }
 
 /**
@@ -66,6 +67,7 @@ function handleInstalled(details) {
 }
 
 let filter = [];
+let showError = true;
 createBlocker();
 browser.storage.onChanged.addListener(createBlocker);
 browser.runtime.onInstalled.addListener(handleInstalled);

@@ -293,6 +293,12 @@ function saveToStorage() {
 async function loadFromStorage() {
     const data = await browser.storage.sync.get();
     reloadWebsites(data.urlList);
+
+    if (typeof data.showError == 'boolean') {
+        document.settings.showError.value = (data.showError) ? 'yes' : 'no';
+    } else {
+        document.settings.showError.value = 'yes';
+    }
 }
 
 /**
@@ -478,6 +484,15 @@ async function checkPrivateBrowsing() {
     if (!isAllowed) banner.classList.remove('hidden');
 }
 
+/**
+ * Save advanced settings to Storage API
+ */
+function saveSettings() {
+    browser.storage.sync.set({
+        showError: (document.settings.showError.value == 'yes') ? true : false
+    });
+}
+
 const UI = {
     field: {
         add: {
@@ -546,3 +561,4 @@ UI.field.backup.file.addEventListener('change', updateRestoreSection);
 UI.field.search.addEventListener('keyup', search);
 UI.button.add.help.addEventListener('click', openHelp);
 UI.button.backup.browse.addEventListener('click', () => { UI.field.backup.file.click(); });
+document.settings.addEventListener('change', saveSettings);
