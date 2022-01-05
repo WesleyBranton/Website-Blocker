@@ -46,7 +46,7 @@
 
 .dialog {
   margin: auto 16px;
-  border: 1px solid var(--grey-90-a30);
+  border: 1px solid var(--secondary-color-3);
   padding: 0 0.5em;
 }
 
