@@ -421,13 +421,14 @@ function processBackupFile(event) {
  */
 function updateRestoreSection() {
     UI.button.backup.upload.disabled = (UI.field.backup.file.files.length != 1);
+    const browserButtonText = UI.button.backup.browse.getElementsByTagName('span')[0];
 
     if (UI.field.backup.file.files.length == 1) {
         UI.field.backup.filename.textContent = UI.field.backup.file.files[0].name;
-        UI.button.backup.browse.textContent = browser.i18n.getMessage('importChangeFile');
+        browserButtonText.textContent = browser.i18n.getMessage('importChangeFile');
     } else {
         UI.field.backup.filename.textContent = browser.i18n.getMessage('importNoFile');
-        UI.button.backup.browse.textContent = browser.i18n.getMessage('importSelectFile');
+        browserButtonText.textContent = browser.i18n.getMessage('importSelectFile');
     }
 }
 

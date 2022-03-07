@@ -59,3 +59,7 @@
 #backup-overwrite {
     margin-right: 1em;
 }
+
+button > .fa-solid {
+    margin-right: 0.5em;
+}

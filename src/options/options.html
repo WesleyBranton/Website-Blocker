@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../icons/icon-96.png">
     <link rel="stylesheet" href="../lib/new_browser_style.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/solid.css">
     <link rel="stylesheet" href="style/theme.css">
 </head>
 
@@ -45,9 +47,18 @@
         <div class="panel-section">
             <div id="error-add" class="error"></div>
             <div>
-                <button id="add-help" class="ghost" data-i18n="actionHelp"></button>
-                <button id="add-cancel" class="secondary" data-i18n="actionCancel"></button>
-                <button id="add-finish" class="default" data-i18n="actionAdd"></button>
+                <button id="add-help" class="ghost">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span data-i18n="actionHelp"></span>
+                </button>
+                <button id="add-cancel" class="secondary">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span data-i18n="actionCancel"></span>
+                </button>
+                <button id="add-finish" class="default">
+                    <i class="fa-solid fa-plus"></i>
+                    <span data-i18n="actionAdd"></span>
+                </button>
             </div>
         </div>
     </div>
@@ -58,7 +69,10 @@
         </div>
         <div class="panel-section">
             <label data-i18n="exportLabel"></label>
-            <button id="backup-download" class="default" data-i18n="actionExport"></button>
+            <button id="backup-download" class="default">
+                <i class="fa-solid fa-file-export"></i>
+                <span data-i18n="actionExport"></span>
+            </button>
         </div>
         <div class="panel-section-separator"></div>
         <div class="panel-section">
@@ -72,28 +86,48 @@
                 </label>
                 <br>
                 <input id="backup-file" type="file" accept=".json">
-                <button id="backup-browse" class="default" data-i18n="importSelectFile"></button>
-                <button id="backup-upload" class="default" data-i18n="actionImport" disabled></button>
+                <button id="backup-browse" class="default">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span data-i18n="importSelectFile"></span>
+                </button>
+                <button id="backup-upload" class="default" disabled>
+                    <i class="fa-solid fa-file-import"></i>
+                    <span data-i18n="actionImport"></span>
+                </button>
             </div>
         </div>
         <div class="panel-section-separator"></div>
         <div class="panel-section">
             <div id="error-backup" class="error"></div>
             <div>
-                <button id="backup-finish" class="default" data-i18n="actionClose"></button>
+                <button id="backup-finish" class="default">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span data-i18n="actionClose"></span>
+                </button>
             </div>
         </div>
     </div>
 
     <div class="panel-section has-help">
         <div class="button-row">
-            <button id='button-add' class="default" data-i18n="actionAdd"></button>
-            <button id='button-delete' class="default" disabled data-i18n="actionDelete"></button>
-            <button id='button-backup' class="default" data-i18n="actionImportAndExport" data-i18n-placeholders="actionImport, actionExport"></button>
+            <button id='button-add' class="default">
+                <i class="fa-solid fa-plus"></i>
+                <span data-i18n="actionAdd"></span>
+            </button>
+            <button id='button-delete' class="default" disabled>
+                <i class="fa-solid fa-trash"></i>
+                <span data-i18n="actionDelete"></span>
+            </button>
+            <button id='button-backup' class="default">
+                <i class="fa-solid fa-arrow-down-long" style="margin-right: 0;"></i>
+                <i class="fa-solid fa-arrow-up-long"></i>
+                <span data-i18n="actionImportAndExport" data-i18n-placeholders="actionImport, actionExport"></span>
+            </button>
         </div>
     </div>
     <div class="panel-section has-help">
-        <div class="button-row">
+        <i class="fa-solid fa-magnifying-glass" style="flex: 0;"></i>
+        <div class="button-row" style="flex: 1; margin-left: 0.5em;">
             <input id="search" type="text">
         </div>
     </div>
