@@ -63,6 +63,30 @@
         </div>
     </div>
 
+    <div id="dialog-delete" class="dialog hidden">
+        <div class="panel-section has-help">
+            <strong data-i18n="headerDelete"></strong>
+        </div>
+        <div id="delete-list-container" class="panel-section has-help">
+            <ul id="delete-list">
+                <!-- Populated by updateDeleteWebsiteList() -->
+            </ul>
+        </div>
+        <div class="panel-section">
+            <div class="error" data-i18n="deleteWarning"></div>
+            <div>
+                <button id="delete-cancel" class="secondary">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span data-i18n="actionCancel"></span>
+                </button>
+                <button id="delete-finish" class="default">
+                    <i class="fa-solid fa-trash"></i>
+                    <span data-i18n="actionDelete"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div id="dialog-backup" class="dialog hidden">
         <div class="panel-section has-help">
             <strong data-i18n="actionImportAndExport" data-i18n-placeholders="actionImport, actionExport"></strong>

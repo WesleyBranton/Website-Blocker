@@ -57,6 +57,9 @@
     "headerAdd": {
         "message": "Add Filter"
     },
+    "headerDelete": {
+        "message": "Are you sure you want to delete these blocked websites?"
+    },
     "headerList": {
         "message": "Blocked Websites"
     },
@@ -115,6 +118,10 @@
     },
     "addModeCustomPlaceholder": {
         "message": "Custom URL Pattern"
+    },
+
+    "deleteWarning": {
+        "message": "This action cannot be undone"
     },
 
     "importClearExisting": {
