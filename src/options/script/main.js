@@ -102,6 +102,20 @@ function getSelectedWebsites() {
 }
 
 /**
+ * Update list of blocked websites that will be removed
+ */
+function updateDeleteWebsiteList() {
+    const selected = getSelectedWebsites();
+    UI.field.delete.list.textContent = '';
+
+    for (const s of selected) {
+        const item = document.createElement('li');
+        item.textContent = s.textContent;
+        UI.field.delete.list.appendChild(item);
+    }
+}
+
+/**
  * Delete selected websites from list
  */
 function deleteWebsite() {
@@ -121,6 +135,7 @@ function deleteWebsite() {
     saveToStorage();
     updateListSize();
     clearSearch();
+    openDeleteDialog(false);
 }
 
 /**
@@ -153,6 +168,22 @@ function openAddDialog(open) {
         UI.dialog.add.classList.remove('hidden');
     } else {
         UI.dialog.add.classList.add('hidden');
+    }
+
+    dialogOpen = open;
+    enableAllButtons(!open);
+}
+
+/**
+ * Open/close delete dialog
+ * @param {boolean} open 
+ */
+function openDeleteDialog(open) {
+    if (open) {
+        updateDeleteWebsiteList();
+        UI.dialog.delete.classList.remove('hidden');
+    } else {
+        UI.dialog.delete.classList.add('hidden');
     }
 
     dialogOpen = open;
@@ -514,6 +545,9 @@ const UI = {
             url: document.getElementById('add-url'),
             mode: document.getElementById('add-mode')
         },
+        delete: {
+            list: document.getElementById('delete-list')
+        },
         backup: {
             file: document.getElementById('backup-file'),
             overwrite: document.getElementById('backup-overwrite'),
@@ -532,6 +566,10 @@ const UI = {
             cancel: document.getElementById('add-cancel'),
             help: document.getElementById('add-help')
         },
+        delete: {
+            submit: document.getElementById('delete-finish'),
+            cancel: document.getElementById('delete-cancel')
+        },
         backup: {
             download: document.getElementById('backup-download'),
             upload: document.getElementById('backup-upload'),
@@ -547,6 +585,7 @@ const UI = {
     },
     dialog: {
         add: document.getElementById('dialog-add'),
+        delete: document.getElementById('dialog-delete'),
         backup: document.getElementById('dialog-backup')
     },
     list: document.getElementById('url-list')
@@ -563,7 +602,12 @@ checkPrivateBrowsing();
 loadFromStorage();
 
 UI.list.addEventListener('click', selectWebsite);
-UI.button.main.delete.addEventListener('click', deleteWebsite);
+UI.button.main.delete.addEventListener('click', () => {
+    openDeleteDialog(true);
+});
+UI.button.delete.cancel.addEventListener('click', () => {
+    openDeleteDialog(false);
+});
 UI.button.main.add.addEventListener('click', () => {
     openAddDialog(true)
 });
@@ -578,6 +622,7 @@ UI.button.backup.cancel.addEventListener('click', () => {
 });
 UI.button.add.submit.addEventListener('click', addWebsite);
 UI.field.add.mode.addEventListener('change', updatePlaceholder);
+UI.button.delete.submit.addEventListener('click', deleteWebsite);
 UI.button.backup.download.addEventListener('click', downloadBackup);
 UI.button.backup.upload.addEventListener('click', restoreBackup);
 UI.field.backup.file.addEventListener('change', updateRestoreSection);
