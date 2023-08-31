@@ -539,6 +539,16 @@ function saveSettings() {
     });
 }
 
+/**
+ * Open feedback window
+ */
+function openFeedback() {
+    browser.runtime.sendMessage({
+        command: 'feedback',
+        target: 'background'
+    });
+}
+
 const UI = {
     field: {
         add: {
@@ -631,4 +641,5 @@ UI.button.add.help.addEventListener('click', openHelp);
 UI.button.backup.browse.addEventListener('click', () => {
     UI.field.backup.file.click();
 });
+document.getElementById('feedbacklink').addEventListener('click', openFeedback);
 document.settings.addEventListener('change', saveSettings);

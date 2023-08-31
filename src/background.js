@@ -58,6 +58,21 @@ async function checkData() {
 }
 
 /**
+ * Handle incoming runtime messages
+ * @param {Object} message
+ */
+function handleMessage(message) {
+    if (typeof message.target == 'string' && message.target != 'background') {
+        return;
+    }
+    switch (message.command.toUpperCase()) {
+        case 'FEEDBACK':
+            openFeedback();
+            break;
+    }
+}
+
+/**
  * Handles the installation/update of the add-on
  */
 function handleInstalled(details) {
@@ -72,6 +87,20 @@ function handleInstalled(details) {
  function setUninstallPage() {
     getSystemDetails((details) => {
         browser.runtime.setUninstallURL(`${webBase}/uninstall/?browser=${details.browser}&os=${details.os}&version=${details.version}`);
+    });
+}
+
+/**
+ * Open feedback window
+ */
+function openFeedback() {
+    getSystemDetails((details) => {
+        browser.windows.create({
+            height: 700,
+            width: 450,
+            type: browser.windows.CreateType.PANEL,
+            url: `${webBase}/feedback/?browser=${details.browser}&os=${details.os}&version=${details.version}`
+        });
     });
 }
 
@@ -95,6 +124,7 @@ let showError = true;
 createBlocker();
 browser.storage.onChanged.addListener(createBlocker);
 browser.runtime.onInstalled.addListener(handleInstalled);
+browser.runtime.onMessage.addListener(handleMessage);
 browser.browserAction.onClicked.addListener(() => {
     browser.runtime.openOptionsPage();
 });
