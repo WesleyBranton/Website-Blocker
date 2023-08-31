@@ -75,3 +75,17 @@ button > .fa-solid {
 #delete-list {
     margin: 0;
 }
+
+.panel-section-footer > div {
+    border-left: 1px solid var(--border-color);
+    padding: 0.5em;
+    text-align: center;
+}
+
+.panel-section-footer a {
+    cursor: pointer;
+}
+
+.panel-section-footer > div:first-of-type {
+    border: none;
+}

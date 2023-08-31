@@ -54,6 +54,13 @@
         }
     },
 
+    "linkDonate": {
+        "message": "Donate"
+    },
+    "linkFeedback": {
+        "message": "Feedback"
+    },
+
     "headerAdd": {
         "message": "Add Filter"
     },
